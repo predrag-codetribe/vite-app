@@ -1,0 +1,99 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "extends": [
+        "eslint:recommended",
+        // https://typescript-eslint.io/docs/
+        "plugin:@typescript-eslint/recommended",
+        // https://typescript-eslint.io/docs/linting/typed-linting
+        "plugin:@typescript-eslint/recommended-requiring-type-checking",
+        // https://github.com/jsx-eslint/eslint-plugin-react
+        "plugin:react/recommended",
+        "plugin:react/jsx-runtime",
+        // https://reactjs.org/docs/hooks-rules.html#eslint-plugin
+        "plugin:react-hooks/recommended"
+    ],
+    "overrides": [],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "project": "./tsconfig.json",
+        "ecmaVersion": "latest",
+        "sourceType": "module"
+    },
+    "plugins": [
+        "@typescript-eslint",
+        "react",
+        "react-hooks"
+    ],
+    "settings": {
+        "react": {
+            "version": "detect"
+        }
+    },
+    "rules": {
+        "react-hooks/rules-of-hooks": "error",
+        "react-hooks/exhaustive-deps": "warn",
+        "no-multiple-empty-lines": [
+            "error",
+            {
+                "max": 2
+            }
+        ],
+        "no-console": [
+            "error",
+            {
+                "allow": [
+                    "warn",
+                    "error"
+                ]
+            }
+        ],
+        "indent": [
+            "error",
+            4
+        ],
+        "quotes": [
+            "error",
+            "single"
+        ],
+        "semi": [
+            "error",
+            "never"
+        ],
+        "object-curly-spacing": [
+            "warn",
+            "always"
+        ],
+        "react/jsx-curly-spacing": [
+            "warn",
+            {
+                "when": "never"
+            }
+        ],
+        "no-multi-spaces": "warn",
+        "react/jsx-tag-spacing": [
+            "warn",
+            {
+                "closingSlash": "never",
+                "beforeSelfClosing": "always",
+                "afterOpening": "never",
+                "beforeClosing": "allow"
+            }
+        ],
+        "react/jsx-closing-bracket-location": [
+            "warn",
+            {
+                "selfClosing": "after-props",
+                "nonEmpty": "after-props"
+            }
+        ],
+        "react/jsx-max-props-per-line": [
+            "warn",
+            {
+                "maximum": 1
+            }
+        ]
+    }
+}
