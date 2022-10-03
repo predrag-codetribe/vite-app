@@ -7,8 +7,6 @@
         "eslint:recommended",
         // https://typescript-eslint.io/docs/
         "plugin:@typescript-eslint/recommended",
-        // https://typescript-eslint.io/docs/linting/typed-linting
-        "plugin:@typescript-eslint/recommended-requiring-type-checking",
         // https://github.com/jsx-eslint/eslint-plugin-react
         "plugin:react/recommended",
         "plugin:react/jsx-runtime",
@@ -18,7 +16,6 @@
     "overrides": [],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
-        "project": "./tsconfig.json",
         "ecmaVersion": "latest",
         "sourceType": "module"
     },
