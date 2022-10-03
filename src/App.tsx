@@ -6,7 +6,7 @@ function App() {
     const [count, setCount] = useState(0)
 
     useEffect(() => {
-        console.log(count)
+        console.warn(count)
     },[count])
 
     return <div className="App">
