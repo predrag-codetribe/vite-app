@@ -7,12 +7,15 @@ import {
     unstable_HistoryRouter as HistoryRouter,
 } from 'react-router-dom'
 import { myHistory } from '@/router/history'
+import { AuthProvider } from '@/context/authContext'
 
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     <React.StrictMode>
         <HistoryRouter history={myHistory}>
-            <App />
+            <AuthProvider>
+                <App />
+            </AuthProvider>
         </HistoryRouter>
     </React.StrictMode>
 )

@@ -1,3 +1,5 @@
 {
-    "home.example": "Example"
+    "home_page.example": "Example",
+    "home_page.home": "Home",
+    "home_page.about": "About"
 }

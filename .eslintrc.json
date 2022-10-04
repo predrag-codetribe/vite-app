@@ -91,6 +91,15 @@
             {
                 "maximum": 1
             }
+        ],
+        "react/jsx-no-literals": ["warn",
+            {
+                "noStrings": false,
+                "allowedStrings": [],
+                "ignoreProps": true,
+                "noAttributeStrings": false
+            }
         ]
+
     }
 }
