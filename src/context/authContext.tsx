@@ -1,10 +1,9 @@
+import { GetUserResponse } from '@/http/apis/useExampleApi'
 import { createContext, useState, ReactNode, useContext } from 'react'
 
-type User = unknown
-
 type Context = {
-  user: User | null,
-  setUser: (user: User | null) => void
+    user: GetUserResponse | null,
+    setUser: (user: GetUserResponse | null) => void
 }
 
 const AuthContext = createContext<Context | undefined>(undefined)
@@ -16,14 +15,12 @@ export function useAuthContext() {
 }
 
 type Props = {
-  children: ReactNode
+    children: ReactNode
 }
 export const AuthProvider = ({ children }: Props) => {
-    const [user, setUser] = useState<User | null>(null)
+    const [user, setUser] = useState<GetUserResponse | null>(null)
 
-    return (
-        <AuthContext.Provider value={{ user, setUser }}>
-            {children}
-        </AuthContext.Provider>
-    )
+    return <AuthContext.Provider value={{ user, setUser }}>
+        {children}
+    </AuthContext.Provider>
 }

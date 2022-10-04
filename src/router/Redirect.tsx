@@ -1,8 +1,8 @@
 import { generatePath, Navigate, useParams } from 'react-router-dom'
 
 type RedirectProps = {
-  to: string,
-  keepSearchParams?: boolean
+    to: string,
+    keepSearchParams?: boolean
 }
 export function Redirect ({
     to,

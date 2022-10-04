@@ -1,3 +1,3 @@
 export function Hello() {
-    return <div>Hello</div>
+    return <div>{'Hello'}</div>
 }
