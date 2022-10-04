@@ -1,5 +1,6 @@
 {
     "home_page.example": "Example",
     "home_page.home": "Home",
-    "home_page.about": "About"
+    "home_page.about": "About",
+    "validations.required": "This field is required"
 }

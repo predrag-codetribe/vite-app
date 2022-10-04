@@ -7,7 +7,6 @@ export type PaginatedResponse<T> = {
     totalCount: number
 }
 
-
 const backendApi = axios.create({
     baseURL: import.meta.env.BASE_URL,
     headers: {
