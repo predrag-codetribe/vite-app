@@ -4,9 +4,9 @@ type Props = {
     element: ReactElement
 }
 
-export const Guard = ({
+export const Page = ({
     element
 }: Props) => {
-    // TODO add auth validation based on app logic
+    // TODO add page guard validation based on business logic
     return <Suspense fallback={<></>}>{element}</Suspense>
 }

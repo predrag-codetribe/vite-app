@@ -2,7 +2,7 @@ import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { Routes, Route } from 'react-router-dom'
 import ActiveLink from './router/ActiveLink'
-import { Guard } from './router/Guard'
+import { Page } from './router/Page'
 
 const HomePage = React.lazy(() => import('./pages/HomePage/HomePage'))
 const AboutPage = React.lazy(() => import('./pages/AboutPage/AboutPage'))
@@ -26,11 +26,11 @@ function App() {
         <Routes>
             <Route
                 index
-                element={<Guard element={<HomePage />} />} />
+                element={<Page element={<HomePage />} />} />
 
             <Route
                 path="/about"
-                element={<Guard element={<AboutPage />} />} />
+                element={<Page element={<AboutPage />} />} />
         </Routes>
     </div>
 }
