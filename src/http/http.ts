@@ -1,5 +1,4 @@
 import axios from 'axios'
-import { QueryClient } from '@tanstack/react-query'
 
 export type PaginatedResponse<T> = {
     items: T[]
@@ -32,11 +31,3 @@ export async function getJwtToken () {
 }
 
 export const http = backendApi.request
-
-export const queryClient = new QueryClient({
-    defaultOptions: {
-        queries: {
-            retry: false
-        }
-    }
-})
