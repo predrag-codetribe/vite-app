@@ -4,6 +4,7 @@ Things to know:
 - `npm` is the default package manager.
 - When exporting Page components, make sure to export as default(because we lazy load routes).
 
+
 Commands:
 
 ### `npm run dev`
