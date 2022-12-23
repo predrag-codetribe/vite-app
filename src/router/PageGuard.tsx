@@ -4,7 +4,7 @@ type Props = {
     element: ReactElement
 }
 
-export const Page = ({
+export const PageGuard = ({
     element
 }: Props) => {
     // TODO add page guard validation based on business logic
