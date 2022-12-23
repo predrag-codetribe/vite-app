@@ -1,5 +1,5 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-npx eslint ./src
+npm run lint
 npm test run # equivalent to "vitest run"
