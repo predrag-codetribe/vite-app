@@ -7,7 +7,7 @@ type Props = {
     activeClassName?: string
 } & PropsWithoutRef<LinkProps> & RefAttributes<HTMLAnchorElement>
 
-export default function ActiveLink({ className='', exact=false, activeClassName='active', ...rest }: Props) {
+export default function ActiveLink({ className = '', exact = false, activeClassName = 'active', ...rest }: Props) {
     const exactMatch = useMatch(rest.to.toString())
     const partiallyMatch = useMatch(rest.to.toString() + '/*')
 

@@ -7,7 +7,7 @@ export function useQueryParam(key: string ): [
     string | null,
     (newQuery: NewQuery<unknown>) => void
 ] {
-    const [searchParams, setSearchParams] = useSearchParams()
+    const [ searchParams, setSearchParams ] = useSearchParams()
 
     const paramValue = searchParams.get(key)
     const value = useMemo(() => paramValue, [paramValue])
@@ -27,17 +27,17 @@ export function useQueryParam(key: string ): [
         if (oldSearchParamsString === newSearchParams.toString()) return
         setSearchParams(newSearchParams, { replace: true })
     },
-    [key, setSearchParams]
+    [ key, setSearchParams ]
     )
 
-    return [value, setValue]
+    return [ value, setValue ]
 }
 
 export function useBooleanQueryParam(key: string): [
     boolean,
     (newQuery: NewQuery<boolean>) => void
 ] {
-    const [query, setQuery] = useQueryParam(key)
+    const [ query, setQuery ] = useQueryParam(key)
     const value = useMemo(() => {
     // `?query=true`
         if (query === 'true') return true
@@ -46,19 +46,19 @@ export function useBooleanQueryParam(key: string): [
         return false
     }, [query])
 
-    return [value, setQuery]
+    return [ value, setQuery ]
 }
 
 export function useArrayQueryParam(key: string ): [
     string[],
     (newQuery: NewQuery<unknown[]>) => void
 ] {
-    const [query, setQuery] = useQueryParam(key)
+    const [ query, setQuery ] = useQueryParam(key)
 
     const value = useMemo(() => {
         if (!query) return []
         return query.split(',')
     }, [query])
 
-    return [value, setQuery]
+    return [ value, setQuery ]
 }

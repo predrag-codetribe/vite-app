@@ -5,14 +5,14 @@ import srTranslations from './locales/sr.json'
 
 export type TranslationKey = keyof typeof enTranslations
 
-const supportedLocales = ['en', 'sr']
+const supportedLocales = [ 'en', 'sr' ]
 
 i18n
     .use(initReactI18next) // pass the i18n instance to react-i18next.
     .init({
         debug: false,
-        interpolation: { escapeValue: false }, // React already does escaping
         lng: 'en',
+        interpolation: { escapeValue: false }, // React already does escaping
         resources: {
             en: { translation: enTranslations },
             sr: { translation: srTranslations }

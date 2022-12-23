@@ -1,33 +1,29 @@
 import axios from 'axios'
 
-export type PaginatedResponse<T> = {
-    items: T[]
-    count: number
-    totalCount: number
-}
-
-const backendApi = axios.create({
-    baseURL: import.meta.env.BASE_URL,
+const backend = axios.create({
+    baseURL: import.meta.env.VITE_BASE_URL,
     headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
     },
 })
 
-backendApi.interceptors.request.use(async function (config) {
-    const token = await getJwtToken()
+backend.interceptors.request.use(function (config) {
+    const token = getJwtToken()
     if (token && config.headers) {
         config.headers['authorization'] = `Bearer ${token}`
     }
-
     return config
 }, function (error) {
     return Promise.reject(error)
 })
 
-export async function getJwtToken () {
-    // todo: add auth token
-    return null
+const tokenStorageKey = 'user_jwt'
+export function getJwtToken(): string | null {
+    return localStorage.getItem(tokenStorageKey)
 }
 
-export const http = backendApi.request
+export function setJwtToken(token: string) {
+    localStorage.setItem(tokenStorageKey, token)
+}
+

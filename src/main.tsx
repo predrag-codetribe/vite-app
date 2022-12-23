@@ -6,7 +6,7 @@ import {
     unstable_HistoryRouter as HistoryRouter,
 } from 'react-router-dom'
 import { myHistory } from '@/router/history'
-import { AuthProvider } from '@/context/authContext'
+import { AuthProvider } from '@/context/AuthContext'
 import App from '@/App'
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
