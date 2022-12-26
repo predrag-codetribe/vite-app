@@ -42,7 +42,9 @@ module.exports = {
     },
     'rules': {
         'react-hooks/rules-of-hooks': 'error',
-        'react-hooks/exhaustive-deps': 'warn',
+        'react-hooks/exhaustive-deps': ['warn', {
+            'additionalHooks': '(useNoInitialEffect)' // '(useNoInitialEffect|useSomeOtherEffect)'
+        }],
         'no-multiple-empty-lines': [
             'error',
             {

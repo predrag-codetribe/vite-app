@@ -3,13 +3,12 @@ const parse = require('csv-parse/lib/sync')
 var fs = require('fs')
 
 // Make sure to make the sheet link public.
-// https://docs.google.com/spreadsheets/d/1K_x4QuXsqTUSwouEVl_j6EZpWAcNHJaEb7nCeCkTb6A/edit#gid=0
+// https://docs.google.com/spreadsheets/d/1PWfDNHxkEBRknzssW5T7ihaiXDQFndJtxBr8AbWUxcU/edit#gid=0
 //                        GOOGLE_DOC_ID - ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^          ^^^^^^^^^^
-const GOOGLE_DOC_ID = '12hWS6eq6ISR51NqYbYN5pTpaX5EPZ-5zFwnE-8TxZoo',
+const GOOGLE_DOC_ID = '1PWfDNHxkEBRknzssW5T7ihaiXDQFndJtxBr8AbWUxcU',
     GID = 0,
-    supportedLanguages = ['en', 'sr']
+    supportedLanguages = [ 'en', 'sr' ]
 //                   ^^^^^^^^^^^^ language values in the sheet, make sure that they match the value in the sheet
-
 
 async function main() {
     const sheetCSV = await fetch(`https://docs.google.com/spreadsheets/d/${GOOGLE_DOC_ID}/gviz/tq?tqx=out:csv&gid=${GID}`)
@@ -63,7 +62,7 @@ function parseAndMoveTranslations(input) {
 }
 
 function throwIfMissingRequiredKey(record) {
-    const requiredKeys = ['KEY', ...supportedLanguages]
+    const requiredKeys = [ 'KEY', ...supportedLanguages ]
     const recordKeys = Object.keys(record)
     for (let requiredKey of requiredKeys) {
         if (!recordKeys.includes(requiredKey)) {

@@ -34,3 +34,5 @@ dist-ssr
 *.avi
 *.flv
 *.mov
+
+.env

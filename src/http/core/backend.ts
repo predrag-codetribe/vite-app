@@ -1,7 +1,16 @@
+import { QueryClient } from '@tanstack/react-query'
 import axios from 'axios'
 
-const backend = axios.create({
-    baseURL: import.meta.env.VITE_BASE_URL,
+export const queryClient = new QueryClient({
+    defaultOptions: {
+        queries: {
+            retry: false
+        }
+    }
+})
+
+export const backend = axios.create({
+    baseURL: import.meta.env.VITE_BACKEND_BASE_URL,
     headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
@@ -25,5 +34,11 @@ export function getJwtToken(): string | null {
 
 export function setJwtToken(token: string) {
     localStorage.setItem(tokenStorageKey, token)
+}
+
+export type PaginatedResponse<T> = {
+    items: T[]
+    count: number
+    totalCount: number
 }
 

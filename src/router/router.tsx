@@ -5,7 +5,7 @@ import ActiveLink from './ActiveLink'
 import { PageGuard } from './PageGuard'
 
 const HomePage = lazy(() => import('@/pages/HomePage/HomePage'))
-const AboutPage = lazy(() => import('@/pages/AboutPage/AboutPage'))
+const UsersPage = lazy(() => import('@/pages/UsersPage/UsersPage'))
 
 const Dashboard = () => {
     const { t } = useTranslation()
@@ -15,9 +15,9 @@ const Dashboard = () => {
                 className='p-1'
                 activeClassName='border-b'>{t('home_page.home')}</ActiveLink>
 
-            <ActiveLink to='/about'
+            <ActiveLink to='/users'
                 className='p-1'
-                activeClassName='border-b'>{t('home_page.about')}</ActiveLink>
+                activeClassName='border-b'>{t('users_page.users')}</ActiveLink>
         </header>
         <main>
             <Outlet />
@@ -35,8 +35,8 @@ export const router = createBrowserRouter([
                 element: <PageGuard element={<HomePage />} />
             },
             {
-                path: '/about',
-                element: <PageGuard element={<AboutPage />} />
+                path: '/users',
+                element: <PageGuard element={<UsersPage />} />
             }
         ]
     },
