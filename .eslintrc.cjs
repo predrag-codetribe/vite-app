@@ -16,7 +16,13 @@ module.exports = {
         // https://typescript-eslint.io/docs/linting/typed-linting/
         'plugin:@typescript-eslint/recommended-requiring-type-checking',
     ],
-    'overrides': [],
+    'overrides': [
+        {
+            'files': ['*.cjs'],
+            'rules': {
+                'no-undef': 'off'
+            }
+        }],
     'parser': '@typescript-eslint/parser',
     'parserOptions': {
         'ecmaVersion': 'latest',
