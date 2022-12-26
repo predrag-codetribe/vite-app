@@ -3,14 +3,10 @@ import { usePagination } from '@/hooks/usePagination'
 import { useGetAllUsers } from '@/http/usersApi'
 
 export default function UsersPage() {
-    const { currentPage, setPage, limit, offset, setItemsCount, totalPages } = usePagination()
+    const { currentPage, setPage, limit, offset, getTotalPages } = usePagination()
     const { data: users, status } = useGetAllUsers({
         limit,
         offset
-    }, {
-        onSuccess(data) {
-            setItemsCount(data.totalCount)
-        }
     })
 
     return <div>
@@ -25,10 +21,12 @@ export default function UsersPage() {
                 <button className='border p-1'>{'Edit'}</button>
                 <button className='border p-1'>{'Delete'}</button>
             </div>)}
+
+            <Pagination
+                currentPage={currentPage}
+                onPageChange={setPage}
+                totalPages={getTotalPages(users.totalCount)} />
         </div>}
 
-        <Pagination currentPage={currentPage}
-            onPageChange={setPage}
-            totalPages={totalPages} />
     </div>
 }

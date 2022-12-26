@@ -12,18 +12,14 @@ export function usePagination(options?: Configuration) {
     const numberPageQuery = pageQuery ? Number(pageQuery) : 1
 
     const [ currentPage, setPage ] = useState(numberPageQuery)
-    const [ itemsCount, setItemsCount ] = useState(0)
 
-    const totalPages = Math.ceil(itemsCount / limit)
     const offset = (currentPage - 1) * limit
 
     useNoInitialEffect(() => {
-        if (totalPages && totalPages < currentPage) {
-            setPage(totalPages)
-            return
-        }
         setPageQuery(currentPage)
-    }, [ currentPage, setPageQuery, totalPages ])
+    }, [ currentPage, setPageQuery ])
+
+    const getTotalPages = (itemsCount: number) => Math.ceil(itemsCount / limit)
 
     return {
         /** Current page starts from 1 and above. */
@@ -31,7 +27,6 @@ export function usePagination(options?: Configuration) {
         setPage,
         limit,
         offset,
-        setItemsCount,
-        totalPages
+        getTotalPages
     }
 }
