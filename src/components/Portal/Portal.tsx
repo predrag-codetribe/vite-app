@@ -1,30 +1,25 @@
-import { useState, useLayoutEffect, ReactNode } from 'react'
+// This implementation is found at https://www.joshwcomeau.com/snippets/react-components/in-portal/
+import { ReactNode, useLayoutEffect, useState } from 'react'
 import { createPortal } from 'react-dom'
 
 type Props = {
     children: ReactNode
     id: string
 }
-export function Portal({
-    children,
-    id,
-}: Props) {
-    const [ wrapperElement, setWrapperElement ] = useState<HTMLDivElement | null>(
-        null
-    )
-    useLayoutEffect(() => {
-        setWrapperElement(createWrapperAndAppendToBody(id))
-        return () => {
-            createWrapperAndAppendToBody(id)?.remove()
-        }
-    }, [id])
-    return wrapperElement ? createPortal(children, wrapperElement) : null
-}
 
-function createWrapperAndAppendToBody(wrapperId: string) {
-    if (document.getElementById(wrapperId)) return document.getElementById(wrapperId) as HTMLDivElement
-    const wrapperElement = document.createElement('div')
-    wrapperElement.setAttribute('id', wrapperId)
-    document.body.appendChild(wrapperElement)
-    return wrapperElement
+export function Portal({ id, children }: Props) {
+    const [ hasMounted, setHasMounted ] = useState(false)
+    useLayoutEffect(() => {
+        setHasMounted(true)
+    }, [])
+    if (!hasMounted) {
+        return null
+    }
+    const el = document.getElementById(id)
+    if (!el) return null
+
+    return createPortal(
+        children,
+        el
+    )
 }

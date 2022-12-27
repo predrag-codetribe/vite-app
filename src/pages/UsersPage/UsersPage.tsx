@@ -1,16 +1,29 @@
 import { Pagination } from '@/components/Pagination/Pagination'
+import { Portal } from '@/components/Portal/Portal'
+import { useDebounce } from '@/hooks/useDebounce'
 import { usePagination } from '@/hooks/usePagination'
+import { useQueryParam } from '@/hooks/useQueryParams'
 import { useGetAllUsers } from '@/http/usersApi'
 
 export default function UsersPage() {
     const { currentPage, setPage, limit, offset, getTotalPages } = usePagination()
+    const [ searchQuery, setSearchQuery ] = useQueryParam('search')
+    const debounceSearchQuery = useDebounce(searchQuery, 300)
+
     const { data: users, status } = useGetAllUsers({
         limit,
-        offset
+        offset,
+        searchQuery: debounceSearchQuery ?? ''
     })
 
     return <div>
         <button className='border p-1'>{'Add User'}</button>
+        <Portal id="portal.header-search">
+            <input
+                placeholder='search'
+                value={searchQuery ?? ''}
+                onChange={e => setSearchQuery(e.target.value)} />
+        </Portal>
 
         {status === 'error' && <p>{'Something went wrong'}</p>}
         {status === 'loading' && <p>{'loading...'}</p>}

@@ -39,6 +39,7 @@ export type CreateUserRequest = {
 export type GetAllUsersParams = {
     offset: number
     limit: number
+    searchQuery?: string
 }
 
 export type GetAllUsersResponse = PaginatedResponse<User>
