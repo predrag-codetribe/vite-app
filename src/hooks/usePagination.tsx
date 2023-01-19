@@ -22,7 +22,7 @@ export function usePagination(options?: Configuration) {
     const getTotalPages = (itemsCount: number) => Math.ceil(itemsCount / limit)
 
     return {
-        /** Current page starts from 1 and above. */
+    /** Current page starts from 1 and above. */
         currentPage,
         setPage,
         limit,
