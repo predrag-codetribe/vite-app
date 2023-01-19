@@ -29,6 +29,7 @@
 ### Tech Stack and Libraries:
 - React and TypeScript
 - React Router Dom
+- React Query
 - TailwindCSS
 - i18next
 - Vite, Vitest, Eslint, Husky
