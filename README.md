@@ -70,6 +70,10 @@ Don't manually add translations to `./src/i18n/locales/{locale}.json` files!
 
 Gives you a list of unused translation keys.
 
+#### `npm run storybook`
+
+Open StoryBook documentation.
+
 ### Translations
 
 The source of truth for the translations is this sheet:
@@ -93,12 +97,24 @@ When working with a group of people or different branches, that can cause issues
 
 ### Design system
 
-TODO: add storybook.
+This project uses StoryBook to document components.
+To view it, run `npm run storybook`.
+To create a story file, make sure to add the `.stories.ts` extension.
+See `Button.stories.tsx` for an example.
 
-### Tailwind
+### TailwindCSS
 
-This project uses Tailwind.
+This project uses TailwindCSS.
 All configuration is in `tailwind.config.cjs`.
+
+> NOTE: if you use https://github.com/tailwindlabs/tailwindcss-intellisense/ plugin. you can specify the following setting, to improve the DX experience:
+```json
+{
+  "tailwindCSS.experimental.classRegex": [
+    ["classNames\\(([^)]*)\\)", "'([^']*)'"]
+  ]
+}
+```
 
 ### vite.config.js
 
