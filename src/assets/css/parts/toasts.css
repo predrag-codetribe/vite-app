@@ -1,0 +1,25 @@
+/* see:  https://fkhadra.github.io/react-toastify/how-to-style for all awailable class names */
+
+.Toastify__toast-container {
+    top:  30px !important;
+    z-index: 11 !important;
+}
+
+.Toastify__toast {
+    font-size: 13px !important;
+    font-family: var(--font) !important;
+}
+
+.Toastify__toast--default {
+    color: #fff !important;
+    background: #000 !important;
+}
+
+.toast_close_button  {
+    height: 16px;
+    width: 16px;
+}
+
+.toast_close_button path {
+    stroke: #fff;
+}

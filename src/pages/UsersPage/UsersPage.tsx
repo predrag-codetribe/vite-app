@@ -3,6 +3,7 @@ import { Portal } from '@/components/Portal/Portal'
 import { useDebounce } from '@/hooks/useDebounce'
 import { usePagination } from '@/hooks/usePagination'
 import { useQueryParam } from '@/hooks/useQueryParams'
+import { handleError } from '@/http/core/handleError'
 import { useGetAllUsers } from '@/http/usersApi'
 
 export default function UsersPage() {
@@ -14,6 +15,8 @@ export default function UsersPage() {
         limit,
         offset,
         searchQuery: debounceSearchQuery ?? ''
+    }, {
+        onError: handleError
     })
 
     return <div>
