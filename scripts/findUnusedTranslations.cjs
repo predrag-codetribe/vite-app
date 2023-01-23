@@ -25,7 +25,7 @@ You can tweak the linePatternsThatMayContainTranslations to extend the detection
 You can twaek the ignoreTranslations to ignore some translations.
 */
 
-const translations = require('../src/i18n/locales/en.json')
+const translations = require('../src/i18n/generatedLocales/en.json')
 const targetDir = path.join(__dirname, '..', 'src')
 const targetFiles = '(.ts|.tsx|.js|.jsx)$'
 

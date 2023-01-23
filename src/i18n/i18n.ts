@@ -1,7 +1,7 @@
 import i18n from 'i18next'
 import { initReactI18next } from 'react-i18next'
-import enTranslations from './locales/en.json'
-import srTranslations from './locales/sr.json'
+import enTranslations from './generatedLocales/en.json'
+import srTranslations from './generatedLocales/sr.json'
 
 export type TranslationKey = keyof typeof enTranslations
 
