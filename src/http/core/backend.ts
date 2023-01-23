@@ -1,12 +1,14 @@
 import { QueryClient } from '@tanstack/react-query'
 import axios from 'axios'
+import { handleError } from './handleError'
 
 export const queryClient = new QueryClient({
     defaultOptions: {
         queries: {
-            retry: false
-        }
-    }
+            retry: false,
+            onError: handleError
+        },
+    },
 })
 
 export const backend = axios.create({

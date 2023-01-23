@@ -15,8 +15,6 @@ export default function UsersPage() {
         limit,
         offset,
         searchQuery: debounceSearchQuery ?? ''
-    }, {
-        onError: handleError
     })
 
     return <div>
