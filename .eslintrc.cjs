@@ -80,6 +80,7 @@ module.exports = {
       'allowNullableNumber': true
     }],
     // turn off
+    '@typescript-eslint/no-misused-promises': 'off',
     '@typescript-eslint/no-floating-promises': 'off'
   }
 };
