@@ -19,7 +19,7 @@ export default function UsersPage() {
 
     return <div>
         <button className='border p-1'>{'Add User'}</button>
-        <Portal id="portal.header-search">
+        <Portal id='portal.header-search'>
             <input
                 placeholder='search'
                 value={searchQuery ?? ''}
@@ -30,7 +30,7 @@ export default function UsersPage() {
         {status === 'loading' && <p>{'loading...'}</p>}
         {status === 'success' && <div>
             {users.items.map(user => <div key={user.id}
-                className="flex gap-2 mb-2">
+                className='flex gap-2 mb-2'>
                 <p>{`${user.name} (${user.age})`}</p>
                 <button className='border p-1'>{'Edit'}</button>
                 <button className='border p-1'>{'Delete'}</button>

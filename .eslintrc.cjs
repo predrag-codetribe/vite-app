@@ -43,6 +43,7 @@ module.exports = {
     }],
     '@typescript-eslint/indent': ['error', 4],
     'quotes': ['error', 'single'],
+    'jsx-quotes': ["error", "prefer-single"],
     '@typescript-eslint/semi': ['error', 'never'],
     'object-curly-spacing': ['warn', 'always'],
     'react/jsx-curly-spacing': ['warn', {

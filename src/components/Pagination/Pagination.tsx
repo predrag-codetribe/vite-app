@@ -20,17 +20,17 @@ export function Pagination({ currentPage, totalPages, onPageChange, className }:
     if (totalPages < 2) return <></>
 
     return <div className={className}>
-        <section className="flex items-center gap-2">
-            <button className="border border-red-50"
+        <section className='flex items-center gap-2'>
+            <button className='border border-red-50'
                 onClick={goToPrevPage}>
                 {'<'}
             </button>
 
-            <span className="uppercase flex text-xs">
+            <span className='uppercase flex text-xs'>
                 {currentPage} {'-'} {totalPages}
             </span>
 
-            <button className="border border-red-50"
+            <button className='border border-red-50'
                 onClick={goToNextPage}>
                 {'>'}
             </button>
