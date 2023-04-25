@@ -203,3 +203,24 @@ This repo doesn't have any store, it uses the [context API](https://beta.reactjs
 - `npm` is the default package manager.
 - When exporting Page components, make sure to export as default, because routes are lazy load.
 
+### Debug the App
+
+VS code debug configuration:
+```
+{
+  "name": "ts-node",
+  "type": "node",
+  "request": "launch",
+  "runtimeArgs": ["-r", "ts-node/register", "--loader", "ts-node/esm"],
+  "args": ["${workspaceRoot}/server/src/index.ts"],
+  "resolveSourceMapLocations": [
+    "${workspaceFolder}/**",
+    "!**/node_modules/**"
+  ],
+  "skipFiles": [
+      "**/node_modules/**",
+      "<node_internals>/**"
+    ]
+}
+```
+
