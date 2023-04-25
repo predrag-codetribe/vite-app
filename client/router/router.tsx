@@ -1,10 +1,10 @@
-import { Dashboard } from '@/layout/Dashboard'
+import { Dashboard } from '@/client/layout/Dashboard'
 import { lazy } from 'react'
 import { createBrowserRouter } from 'react-router-dom'
 import { PageGuard } from './PageGuard'
 
-const HomePage = lazy(() => import('@/pages/HomePage/HomePage'))
-const UsersPage = lazy(() => import('@/pages/UsersPage/UsersPage'))
+const HomePage = lazy(() => import('@/client/pages/HomePage/HomePage'))
+const UsersPage = lazy(() => import('@/client/pages/UsersPage/UsersPage'))
 
 export const router = createBrowserRouter([
     {

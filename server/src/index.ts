@@ -1,6 +1,7 @@
 import express from 'express'
 import dotenv from 'dotenv'
 import path from 'path'
+import { num } from '@/shared/protocol'
 
 dotenv.config()
 
@@ -8,9 +9,9 @@ export const app = express()
 const PORT = process.env.PORT
 
 app.get('/api/test', (_, res) => {
-    const x = 'dsad'
+    const x = num
 
-    res.json({ greeting: 'Helopp', x })
+    res.json({ greeting: 'Helopp', x, num })
 })
 
 // app.listen only for production env, else use VITE dev server

@@ -1,4 +1,4 @@
-import i18n from '@/i18n/i18n'
+import i18n from '@/client/i18n/i18n'
 import { toast } from 'react-toastify'
 import axios from 'axios'
 

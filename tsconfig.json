@@ -18,8 +18,10 @@
     "jsx": "react-jsx",
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./client/*"],
+      "@/server/*": ["./server/*"],
+      "@/client/*": ["./client/*"],
+      "@/shared/*": ["./shared/*"],
     }
   },
-  "include": ["client", "server", ".dev/**/*.d.ts"]
+  "include": ["client", "server", "shared", ".dev/**/*.d.ts"]
 }
