@@ -5,6 +5,7 @@ app.get('/api/test', (_, res) =>{
     res.json({ greeting: 'Hello' })
 })
 
+// app.listen only for production env, else use VITE dev server
 if (!process.env['VITE_DEV_SERVER']) {
     const frontendFiles = process.cwd() + '/dist'
 
