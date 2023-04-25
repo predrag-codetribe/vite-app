@@ -1,7 +1,7 @@
 import express from 'express'
 import dotenv from 'dotenv'
 import path from 'path'
-import { num } from '@/shared/protocol'
+import { Person, num } from '@/shared/protocol'
 
 dotenv.config()
 
@@ -9,7 +9,9 @@ export const app = express()
 const PORT = process.env.PORT
 
 app.get('/api/test', (_, res) => {
-    const x = num
+    const x: Person = {
+        name: '32'
+    }
 
     res.json({ greeting: 'Helopp', x, num })
 })

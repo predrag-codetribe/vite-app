@@ -1,9 +1,12 @@
 import ActiveLink from '@/client/router/ActiveLink'
 import { useTranslation } from 'react-i18next'
 import { Outlet } from 'react-router-dom'
-import { num } from '@/shared/protocol'
+import { Person, num } from '@/shared/protocol'
 
 export const Dashboard = () => {
+    const x: Person = {
+        name: 'dsad'
+    }
     const { t } = useTranslation()
     return <div>
         <header className='flex gap-1'>
