@@ -1,0 +1,5 @@
+This folder is for things that should improve Developer Experience.
+
+- ValidateEnv is a Vite plugin that validates frontend and backend env variables, and auto generates typescript types for them.
+
+- i18n is for generating translations and finding unused translations.

@@ -1,7 +1,7 @@
 const path = require('path')
 const findInFiles = require('find-in-files')
 /*
-This script *tries* to find unused tranlations. :)
+This script *tries* to find unused translations. :)
 Do not expect 100% perfect detection, but it should give good enough results.
 
 This script can detect:
@@ -22,7 +22,7 @@ A way to solve it is to use the `as TranslationKey`
 ```
 
 You can tweak the linePatternsThatMayContainTranslations to extend the detection of lines with translations.
-You can twaek the ignoreTranslations to ignore some translations.
+You can tweak the ignoreTranslations to ignore some translations.
 */
 
 const translations = require('../src/i18n/generatedLocales/en.json')
@@ -40,7 +40,7 @@ const linePatternsThatMayContainTranslations = [
 ]
 
 /**
- * There are some translations that shuold be ignored.
+ * There are some translations that should be ignored.
  * Specify them here:
  */
 const ignoreTranslations = [
@@ -55,12 +55,12 @@ const allTranslationKeys = Object.keys(translations)
 const notIgnoredTranslationKeys = allTranslationKeys.filter(translationKey => !isIgnored(translationKey))
 
 /**
- * Ignore thanslations that are dynamically generated like `t{`some_key.{dynamicValue}`}`
+ * Ignore translations that are dynamically generated like `t{`some_key.{dynamicValue}`}`
  * @param      {string}  translationKey   The value
  * @return     {boolean}  { description_of_the_return_value }
  */
 function isIgnored(translationKey) {
-    return ignoreTranslations.some(ignoredTraslationRegex => ignoredTraslationRegex.test(translationKey))
+    return ignoreTranslations.some(ignoredTranslationRegex => ignoredTranslationRegex.test(translationKey))
 }
 
 async function main() {
