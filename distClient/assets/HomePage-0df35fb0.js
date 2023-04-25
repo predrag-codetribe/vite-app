@@ -1,0 +1,1 @@
+import{u as s,j as e}from"./index-075b258b.js";function a(){const{t}=s();return e.jsxs("div",{children:[e.jsx("p",{children:t("home_page.example")}),e.jsx("p",{className:"text-center text-3xl",children:"Vite, React, TypeScript, ESLint, Husky, Vitest, TailwindCSS, React Router V6, i18n, Axios, React Query, StoryBook"})]})}export{a as default};

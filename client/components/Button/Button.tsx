@@ -1,4 +1,4 @@
-import { classNames } from '@/client/utils/classNames'
+import { classNames } from '@/utils/classNames'
 import { HTMLAttributes, ReactNode } from 'react'
 
 /**

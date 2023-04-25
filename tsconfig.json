@@ -8,6 +8,7 @@
     "esModuleInterop": false,
     "allowSyntheticDefaultImports": true,
     "strict": true,
+    "strictNullChecks": true,
     "forceConsistentCasingInFileNames": true,
     "module": "ESNext",
     "moduleResolution": "Node",
@@ -17,9 +18,8 @@
     "jsx": "react-jsx",
     "baseUrl": ".",
     "paths": {
-      "@/client/*": ["client/*"],
-      "@/server/*": ["server/*"]
+      "@/*": ["./client/*"],
     }
   },
-  "include": ["client/", "server/", ".dev/**/*.d.ts"],
+  "include": ["client", "server", ".dev/**/*.d.ts"]
 }

@@ -4,7 +4,7 @@ module.exports = {
     'browser': true,
     'es2021': true
   },
-  'ignorePatterns': ['.dev/**', "*.cjs", "vite.config.ts"],
+  'ignorePatterns': ['.dev/**', "*.cjs", "vite.config.ts", "dist*"],
   'extends': ['eslint:recommended', 'plugin:@typescript-eslint/recommended', 'plugin:react/recommended', 'plugin:react/jsx-runtime', 'plugin:react-hooks/recommended', 'plugin:@typescript-eslint/recommended-requiring-type-checking', 'plugin:storybook/recommended'],
   'overrides': [{
     'files': ['*.cjs'],
@@ -22,7 +22,7 @@ module.exports = {
     'ecmaVersion': 'latest',
     'sourceType': 'module',
     'tsconfigRootDir': __dirname,
-    'project': ['./tsconfig.json']
+    'project': ['./tsconfig.json', './server/tsconfig.json']
   },
   'plugins': ['@typescript-eslint', 'react', 'react-hooks'],
   'settings': {

@@ -8,6 +8,9 @@ import { express } from './.dev/viteExpress/viteExpress'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+    build: {
+        outDir: 'distClient'
+    },
     plugins: [
         react(),
         checker({ typescript: true }),
@@ -20,6 +23,7 @@ export default defineConfig({
             }),
             secret: (z) => z.object({
                 DB_CONNECTION: z.string(),
+                PORT: z.string()
             }),
         })
     ]

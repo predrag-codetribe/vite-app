@@ -1,9 +1,9 @@
-import { Pagination } from '@/client/components/Pagination/Pagination'
-import { Portal } from '@/client/components/Portal/Portal'
-import { useDebounce } from '@/client/hooks/useDebounce'
-import { usePagination } from '@/client/hooks/usePagination'
-import { useQueryParam } from '@/client/hooks/useQueryParams'
-import { useGetAllUsers } from '@/client/http/usersApi'
+import { Pagination } from '@/components/Pagination/Pagination'
+import { Portal } from '@/components/Portal/Portal'
+import { useDebounce } from '@/hooks/useDebounce'
+import { usePagination } from '@/hooks/usePagination'
+import { useQueryParam } from '@/hooks/useQueryParams'
+import { useGetAllUsers } from '@/http/usersApi'
 
 export default function UsersPage() {
     const { currentPage, setPage, limit, offset, getTotalPages } = usePagination()
