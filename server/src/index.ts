@@ -8,7 +8,9 @@ export const app = express()
 const PORT = process.env.PORT
 
 app.get('/api/test', (_, res) =>{
-    res.json({ greeting: 'Hello' })
+    const x = 'dsad'
+
+    res.json({ greeting: 'Hellopp', x })
 })
 
 // app.listen only for production env, else use VITE dev server

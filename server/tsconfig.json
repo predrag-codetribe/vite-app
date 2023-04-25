@@ -23,5 +23,5 @@
         "forceConsistentCasingInFileNames": true,
         "skipLibCheck": true,
 	},
-	"include": [".", "../.dev/**/*.d.ts"]
+	"include": ["*/**/*", "../.dev/**/*.d.ts"]
 }
