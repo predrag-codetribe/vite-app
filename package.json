@@ -20,23 +20,17 @@
   "engines": {
     "node": "16"
   },
+  "postcss": {
+    "plugins": {
+      "tailwindcss": {},
+      "autoprefixer": {}
+    }
+  },
   "commitlint": {
     "extends": [
       "@commitlint/config-conventional"
     ],
-    "type-enum": [
-      "build",
-      "chore",
-      "ci",
-      "docs",
-      "feat",
-      "fix",
-      "perf",
-      "refactor",
-      "revert",
-      "style",
-      "test"
-    ]
+    "type-enum": ["build", "docs", "feat", "fix", "perf", "refactor", "revert", "test"]
   },
   "browserslist": {
     "production": [
