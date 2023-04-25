@@ -12,9 +12,10 @@
       - [`npm run lint-fix`](#npm-run-lint-fix)
       - [`npm run translate`](#npm-run-translate)
       - [`npm run find-unused-translations`](#npm-run-find-unused-translations)
+      - [`npm run storybook`](#npm-run-storybook)
     - [Translations](#translations)
     - [Design system](#design-system)
-    - [Tailwind](#tailwind)
+    - [TailwindCSS](#tailwindcss)
     - [vite.config.js](#viteconfigjs)
     - [ESLint](#eslint)
     - [Husky](#husky)
@@ -62,9 +63,9 @@ Fix all auto-fixable ESLint problems.
 
 #### `npm run translate`
 
-This command generates the `./src/i18n/generatedLocales/{locale}.json` files.
+This command generates the `./client/i18n/generatedLocales/{locale}.json` files.
 
-Don't manually add translations to `./src/i18n/generatedLocales/{locale}.json` files!
+Don't manually add translations to `./client/i18n/generatedLocales/{locale}.json` files!
 
 #### `npm run find-unused-translations`
 
@@ -118,7 +119,7 @@ All configuration is in `tailwind.config.cjs`.
 
 ### vite.config.js
 
-Configures Vite to support TypeScript path aliases, adds support for SVGR to enable use of SVG's as in a Create React App, add's "vite-plugin-checker" that spans a new process to run type checking.
+Configures Vite to support TypeScript path aliases adds support for SVGR to enable the use of SVG's as in a Create React App, add's "vite-plugin-checker" that spans a new process to run type checking.
 
 ### ESLint
 

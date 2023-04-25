@@ -1,4 +1,4 @@
-import ActiveLink from '@/router/ActiveLink'
+import ActiveLink from '@/client/router/ActiveLink'
 import { useTranslation } from 'react-i18next'
 import { Outlet } from 'react-router-dom'
 
