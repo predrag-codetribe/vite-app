@@ -20,6 +20,24 @@
   "engines": {
     "node": "16"
   },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ],
+    "type-enum": [
+      "build",
+      "chore",
+      "ci",
+      "docs",
+      "feat",
+      "fix",
+      "perf",
+      "refactor",
+      "revert",
+      "style",
+      "test"
+    ]
+  },
   "browserslist": {
     "production": [
       ">0.2%",
