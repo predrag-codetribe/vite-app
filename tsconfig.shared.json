@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    // shared options
+    // shared options between the server and client
     "useDefineForClassFields": true,
     "skipLibCheck": true,
     "strict": true,
