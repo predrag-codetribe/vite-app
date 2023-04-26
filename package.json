@@ -11,8 +11,8 @@
     "test": "vitest --passWithNoTests",
     "lint": "eslint ./client ./server ./shared",
     "lint-fix": "eslint --fix ./client ./server ./shared",
-    "translate": "node ./dev/i18n/getTranslations.cjs",
-    "find-unused-translations": "node ./dev/i18n/findUnusedTranslations.cjs",
+    "translate": "node ./.dev/i18n/getTranslations.cjs",
+    "find-unused-translations": "node ./.dev/i18n/findUnusedTranslations.cjs",
     "storybook": "storybook dev -p 6006 --config-dir .dev/storybook"
   },
   "engines": {

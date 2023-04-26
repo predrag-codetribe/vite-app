@@ -26,7 +26,7 @@ You can tweak the ignoreTranslations to ignore some translations.
 */
 
 const translations = require('../../client/src/i18n/generatedLocales/en.json')
-const targetDir = path.join(__dirname, '..', 'src')
+const targetDir = path.join(__dirname, '..', '..', 'client', 'src')
 const targetFiles = '(.ts|.tsx|.js|.jsx)$'
 
 /**
