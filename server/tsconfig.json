@@ -1,5 +1,5 @@
 {
-  "extends": "../tsconfig.json",
+  "extends": "../tsconfig.shared.json",
   "compilerOptions": {
     "module": "CommonJS",
     "target": "ES2021",
@@ -15,7 +15,7 @@
     }
   },
   "include": [
-    "*/**/*",
+    "./*/**/*",
     "../.dev/**/*.d.ts",
     "../shared"
   ],

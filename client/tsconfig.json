@@ -1,5 +1,5 @@
 {
-  "extends": "./tsconfig.shared.json",
+  "extends": "../tsconfig.shared.json",
   "compilerOptions": {
     "noEmit": true,
     "moduleResolution": "Node",
@@ -13,13 +13,13 @@
     "jsx": "react-jsx",
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./client/src/*"],
-      "@/shared/*": ["./shared/*"],
+      "@/*": ["./src/*"],
+      "@/shared/*": ["../shared/*"],
     }
   },
   "include": [
-    "client",
-    ".dev/**/*.d.ts",
-    "shared",
+     "./*/**/*",
+    "../.dev/**/*.d.ts",
+    "../shared"
   ],
 }

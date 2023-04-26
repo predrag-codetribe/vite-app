@@ -9,7 +9,7 @@ module.exports = {
     'ecmaVersion': 'latest',
     'sourceType': 'module',
     'tsconfigRootDir': __dirname,
-    'project': ['./server/tsconfig.json', './tsconfig.json']
+    'project': ['./server/tsconfig.json', './client/tsconfig.json']
   },
   'ignorePatterns': ['.dev/**', "*.cjs", "vite.config.ts", "dist*"],
   'extends': ['eslint:recommended', 'plugin:@typescript-eslint/recommended', 'plugin:react/recommended', 'plugin:react/jsx-runtime', 'plugin:react-hooks/recommended', 'plugin:@typescript-eslint/recommended-requiring-type-checking', 'plugin:storybook/recommended'],

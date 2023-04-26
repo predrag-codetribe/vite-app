@@ -12,6 +12,10 @@ import { PARSE_ALL_AS_JSON } from './framework/controller/ExpressJsonOptions'
 import { createController } from './framework/controller/ControllerFactory'
 import { routeNotFoundMiddleware } from './framework/middleware/RouteNotFoundMiddleware'
 import { corsHeadersMiddleware } from './framework/middleware/CorsHeadersMiddleware'
+import path from 'path'
+
+const PORT = process.env.PORT
+const frontendFiles = process.cwd() + '/dist/client'
 
 export const setupApp = () => {
     logOutput.info('Booting the server...')
@@ -44,5 +48,12 @@ export const setupApp = () => {
         .use(Sentry.Handlers.errorHandler())
         .use(exceptionHandlerMiddleware)
 
-    return app
+        .use(express.static(frontendFiles))
+        .get('/*', (_, res) => {
+            res.sendFile(path.resolve(frontendFiles, 'index.html'))
+        })
+
+        app.listen(PORT)
+            // eslint-disable-next-line no-console
+            console.log(`http://localhost:${PORT}`)
 }

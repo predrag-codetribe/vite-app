@@ -1,6 +1,6 @@
 import winston from 'winston'
 import { Log } from './Log'
-import Sentry from '@sentry/node'
+import * as Sentry from '@sentry/node'
 
 const APP_ENV = process.env.APP_ENV
 
