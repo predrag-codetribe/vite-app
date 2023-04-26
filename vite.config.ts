@@ -14,10 +14,10 @@ export default defineConfig({
     },
     plugins: [
         react(),
+        express('./server/src/index.ts'),
         checker({ typescript: true }),
         tsconfigPaths(),
         svgr(),
-        express('./server/src/index.ts'),
         validateEnv({
             public: (z) => z.object({
                 VITE_BACKEND_BASE_URL: z.string(),
