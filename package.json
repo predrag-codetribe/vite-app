@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "tsc && npm run build:server && vite build",
     "build:server": "tsc -b server && tsc-alias -p server/tsconfig.json",
-    "start": "npm run build && node ./dist/server/server/src/index.js",
+    "start": "npm run build && node ./dist/server/src/index.js",
     "test": "vitest --passWithNoTests",
     "lint": "eslint ./client ./server ./shared",
     "lint-fix": "eslint --fix ./client ./server ./shared",
