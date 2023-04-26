@@ -1,5 +1,5 @@
-import { useNoInitialEffect } from '@/client/hooks/useNoInitialEffect'
-import { useQueryParam } from '@/client/hooks/useQueryParams'
+import { useNoInitialEffect } from '@/hooks/useNoInitialEffect'
+import { useQueryParam } from '@/hooks/useQueryParams'
 import { useState } from 'react'
 
 type Configuration = {

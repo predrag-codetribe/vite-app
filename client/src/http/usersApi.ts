@@ -1,5 +1,5 @@
 import { useMutation, useQuery, UseQueryOptions } from '@tanstack/react-query'
-import { backend, queryClient, PaginatedResponse } from '@/client/http/core/backend'
+import { backend, queryClient, PaginatedResponse } from '@/http/core/backend'
 
 const keys = {
     getAllUsers: 'getAllUsers'

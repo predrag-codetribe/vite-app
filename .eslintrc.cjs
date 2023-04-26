@@ -22,7 +22,7 @@ module.exports = {
     'ecmaVersion': 'latest',
     'sourceType': 'module',
     'tsconfigRootDir': __dirname,
-    'project': ['./tsconfig.json', './server/tsconfig.json']
+    'project': ['./tsconfig.json', './tsconfig.base.json', './server/tsconfig.json']
   },
   'plugins': ['@typescript-eslint', 'react', 'react-hooks'],
   'settings': {

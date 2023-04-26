@@ -1,31 +1,16 @@
 {
+  "extends": "../tsconfig.json",
   "compilerOptions": {
     "module": "CommonJS",
     "target": "ES2021",
     "esModuleInterop": true,
     "outDir": "../dist/server",
-    "allowUnreachableCode": false,
-    "allowUnusedLabels": false,
-    "alwaysStrict": true, // Ensures that your files are parsed in the ECMAScript strict mode
-    "exactOptionalPropertyTypes": false, // false, we allow setting optional values to 'undefined', which is not possible if this is true
-    "importsNotUsedAsValues": "remove", // importsNotUsedAsValues - remove is the default, but we also define it explicitly
+    "noEmit": false,
     "noFallthroughCasesInSwitch": true,
-    "strict": true, // enable ALL strict options,
-    "strictPropertyInitialization": false, // "When set to true, TypeScript will raise an error when a class property was declared but not set in the constructor." , I've disabled this so that we can initialize fields AFTER constructing the object
-    "strictNullChecks": true,
-    "noImplicitAny": true,
-    "noImplicitOverride": true,
     "noImplicitReturns": true,
-    "noImplicitThis": true,
-    "noPropertyAccessFromIndexSignature": true,
-    "noUncheckedIndexedAccess": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "forceConsistentCasingInFileNames": true,
-    "skipLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@/server/*": ["./*"],
+      "@/*": ["./src/*"],
       "@/shared/*": ["../shared/*"],
     }
   },
