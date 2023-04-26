@@ -8,6 +8,7 @@ import { express } from './.dev/viteExpress/viteExpress'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+    publicDir: './client/public',
     build: {
         outDir: './dist/client'
     },
