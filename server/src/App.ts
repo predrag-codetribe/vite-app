@@ -31,9 +31,7 @@ export const setupApp = () => {
 
     app
         // Endpoint for checking server health, returns 200
-        .use('/ping', (_req, res) => res.status(200).json({
-            'num': 35
-        }))
+        .use('/ping', (_req, res) => res.status(200).send())
 
         // Parses all incoming requests bodies as json and stores it into req.body
         .use(express.json(PARSE_ALL_AS_JSON))
