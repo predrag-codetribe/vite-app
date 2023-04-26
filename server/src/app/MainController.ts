@@ -12,6 +12,6 @@ const rateLimiter = rateLimit({
 export const mainApiInfo: CreateControllerInfo = {
     middleware: [ rateLimiter, jwtMiddleware ],
     routes: [
-        [ 'get', '/me', GetMe ],
+        [ 'get', '/getMe', GetMe ],
     ],
 }
