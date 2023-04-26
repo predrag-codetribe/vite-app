@@ -54,7 +54,7 @@ function parseAndMoveTranslations(input) {
 
         // wirte translations to the directory
         fs.writeFileSync(
-            `./client/i18n/generatedLocales/${locale}.json`,
+            `./client/src/i18n/generatedLocales/${locale}.json`,
             JSON.stringify(translations, null, 4),
             { encoding:'utf8', flag:'w' }
         )
