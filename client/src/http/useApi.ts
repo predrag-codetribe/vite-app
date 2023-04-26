@@ -2,11 +2,11 @@ import { API_PATHS, ApiInput, ApiOutput } from '@/shared/protocol'
 import { UseMutationOptions, UseQueryOptions, useMutation, useQuery } from '@tanstack/react-query'
 import { backend, queryClient } from './core/backend'
 
-export function useGet<Path extends API_PATHS, Input = ApiInput<Path>, Output = ApiOutput<Path>>(path: Path, input: Input, options: UseQueryOptions<Output> = {}) {
-    return useQuery<Output>(
+export function useGet<Path extends API_PATHS>(path: Path, input: ApiInput<Path>, options: UseQueryOptions<ApiOutput<Path>> = {}) {
+    return useQuery<ApiOutput<Path>>(
        {
             queryKey: [ path, input ],
-            queryFn: async () => (await backend.request<Output>({
+            queryFn: async () => (await backend.request<ApiOutput<Path>>({
                 method: 'get',
                 url: path,
                 params: input
@@ -16,10 +16,10 @@ export function useGet<Path extends API_PATHS, Input = ApiInput<Path>, Output = 
     )
 }
 
-export function usePost<Path extends API_PATHS, Input = ApiInput<Path>, Output = ApiOutput<Path>>(path: Path, { onSuccess, ...otherOptions }: UseMutationOptions<Output, unknown, Input> = {}) {
+export function usePost<Path extends API_PATHS>(path: Path, { onSuccess, ...otherOptions }: UseMutationOptions<ApiOutput<Path>, unknown, ApiInput<Path>> = {}) {
     return useMutation({
        ...otherOptions,
-       mutationFn: async (data: Input) => (await backend.request<Output>({
+       mutationFn: async (data: ApiInput<Path>) => (await backend.request<ApiOutput<Path>>({
             method: 'post',
             url: path,
             data
