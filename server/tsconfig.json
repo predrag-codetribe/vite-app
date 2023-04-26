@@ -18,5 +18,7 @@
     "*/**/*",
     "../.dev/**/*.d.ts",
     "../shared"
-  ]
+  ],
+  // below makes ts-node (debugger) see ProcessEnv.ts , among other things
+  "ts-node": { "files": true },
 }

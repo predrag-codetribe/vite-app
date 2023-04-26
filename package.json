@@ -28,7 +28,16 @@
     "extends": [
       "@commitlint/config-conventional"
     ],
-    "type-enum": ["build", "docs", "feat", "fix", "perf", "refactor", "revert", "test"]
+    "type-enum": [
+      "build",
+      "docs",
+      "feat",
+      "fix",
+      "perf",
+      "refactor",
+      "revert",
+      "test"
+    ]
   },
   "browserslist": {
     "production": [
@@ -87,6 +96,7 @@
     "tailwindcss": "^3.1.8",
     "ts-node": "^10.9.1",
     "tsc-alias": "^1.8.5",
+    "tsconfig-paths": "^4.2.0",
     "typescript": "^5.0.4",
     "vite": "^4.3.1",
     "vite-plugin-checker": "^0.5.6",

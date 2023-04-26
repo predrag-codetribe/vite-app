@@ -211,16 +211,17 @@ VS code debug configuration:
   "name": "ts-node",
   "type": "node",
   "request": "launch",
-  "runtimeArgs": ["-r", "ts-node/register", "--loader", "ts-node/esm"],
+  "runtimeArgs": ["-r", "ts-node/register", "-r", "tsconfig-paths/register"],
   "args": ["${workspaceRoot}/server/src/index.ts"],
+  "env": { "TS_NODE_PROJECT": "server/tsconfig.json" },
   "resolveSourceMapLocations": [
     "${workspaceFolder}/**",
     "!**/node_modules/**"
   ],
   "skipFiles": [
-      "**/node_modules/**",
-      "<node_internals>/**"
-    ]
+    "**/node_modules/**",
+    "<node_internals>/**"
+  ]
 }
 ```
 
