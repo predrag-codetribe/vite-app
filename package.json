@@ -13,7 +13,7 @@
     "lint-fix": "eslint --fix ./client ./server ./shared",
     "translate": "node ./dev/i18n/getTranslations.cjs",
     "find-unused-translations": "node ./dev/i18n/findUnusedTranslations.cjs",
-    "prepare": "husky install",
+    "prepare": "husky install .dev/husky",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
