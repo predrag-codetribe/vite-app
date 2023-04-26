@@ -3,19 +3,17 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
+    "prepare": "husky install .dev/husky",
     "dev": "vite",
     "build": "tsc && npm run build:server && vite build",
     "build:server": "tsc -b server && tsc-alias -p server/tsconfig.json",
     "start": "npm run build && node ./dist/server/server/src/index.js",
-    "preview": "vite preview",
     "test": "vitest --passWithNoTests",
     "lint": "eslint ./client ./server ./shared",
     "lint-fix": "eslint --fix ./client ./server ./shared",
     "translate": "node ./dev/i18n/getTranslations.cjs",
     "find-unused-translations": "node ./dev/i18n/findUnusedTranslations.cjs",
-    "prepare": "husky install .dev/husky",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "storybook": "storybook dev -p 6006 --config-dir .dev/storybook"
   },
   "engines": {
     "node": "16"
