@@ -14,7 +14,7 @@
     "translate": "node ./.dev/i18n/getTranslations.cjs",
     "find-unused-translations": "node ./.dev/i18n/findUnusedTranslations.cjs",
     "create-usecase": "node ./.dev/createUsecase/createUsecase.cjs",
-    "storybook": "storybook dev -p 6006 --config-dir .dev/storybook"
+    "storybook": "storybook dev -p 6006"
   },
   "engines": {
     "node": "18"
@@ -80,13 +80,13 @@
   "devDependencies": {
     "@commitlint/cli": "17.3.0",
     "@commitlint/config-conventional": "17.3.0",
-    "@storybook/addon-essentials": "7.0.0-beta.30",
-    "@storybook/addon-interactions": "7.0.0-beta.30",
-    "@storybook/addon-links": "7.0.0-beta.30",
-    "@storybook/blocks": "7.0.0-beta.30",
-    "@storybook/react": "7.0.0-beta.30",
-    "@storybook/react-vite": "7.0.0-beta.30",
-    "@storybook/testing-library": "0.0.13",
+    "@storybook/addon-essentials": "7.0.7",
+    "@storybook/addon-interactions": "7.0.7",
+    "@storybook/addon-links": "7.0.7",
+    "@storybook/blocks": "7.0.7",
+    "@storybook/react": "7.0.7",
+    "@storybook/react-vite": "7.0.7",
+    "@storybook/testing-library": "0.1.0",
     "@types/express": "4.17.17",
     "@types/jsonwebtoken": "9.0.1",
     "@types/node": "18.16.0",
@@ -107,7 +107,7 @@
     "node-fetch": "2.6.1",
     "postcss": "8.4.17",
     "prop-types": "15.8.1",
-    "storybook": "7.0.0-beta.30",
+    "storybook": "7.0.7",
     "tailwindcss": "3.1.8",
     "ts-node": "10.9.1",
     "tsc-alias": "1.8.5",
