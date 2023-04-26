@@ -5,3 +5,7 @@ This folder is for things that should improve Developer Experience.
 - i18n is for generating translations and finding unused translations.
 
 - ViteExpress is to use Vite dev server for serving express.
+
+- Husky to validate commit messages, run test and lint files on commit.
+
+- StoryBook to document components on the frontend.
