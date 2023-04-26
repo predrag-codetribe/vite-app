@@ -41,7 +41,6 @@
   - [Dependency versioning](#dependency-versioning)
   - [Adding env variables](#adding-env-variables)
   - [Creating a model](#creating-a-model)
-  - [UseCases](#usecases)
   - [Services](#services)
 <!--toc:end-->
 
@@ -99,6 +98,15 @@ Open StoryBook documentation.
 #### `npm run create-usecase [DIR_NAME] [FILENAME]`
 
 Will create a template file in `server/src/app/usecase/[DIR_NAME]/[FILENAME]`.
+
+To create a new use case run `npm run create-usecase DIR_NAME FILENAME`
+- `DIR_NAME` - directory inside `src/app/usecases` to create the usecase in (must exist)
+- `FILENAME` - name of new use case
+
+
+UseCase represents one feature, and one API endpoint.
+
+These implementations should be endpoint specific and **NOT** reused - if you need some reusable logic, define it in the [Services](#services) or some other appropriate utility and reuse it from there.
 
 ### Translations
 
@@ -250,7 +258,7 @@ VS code debug configuration:
 └── vite.config.ts
 ```
 
-## Logging
+### Logging
 
 Logging from `UseCase` is always done with `ctx.logger`. In doing so, we assure that request's data will be embedded in the log.
 
@@ -262,8 +270,7 @@ ATM, `winston` is used for logging.
 
 All logs are routed to `stdout`, letting the environment handle them. https://12factor.net/logs.
 
-
-## Dependency versioning
+### Dependency versioning
 
 Dependencies are always specified as exact version (**no carets or tildas**) to ensure a deterministic build every time.
 
@@ -273,8 +280,7 @@ Tip: Use [npm-gui](https://www.npmjs.com/package/npm-gui)
 
 Tip: Use Snyk to evaluate each dependency, for example [https://snyk.io/advisor/npm-package/axios](https://snyk.io/advisor/npm-package/axios) . Other packages are easily accessed by updating the package name in the last part of the URL.
 
-
-## Adding env variables
+### Adding env variables
 
 1. Add the variable to your local `.env`
 2. Add the variable to `.env.example`
@@ -282,25 +288,13 @@ Tip: Use Snyk to evaluate each dependency, for example [https://snyk.io/advisor/
 5. After this, the TypeScript will allow you to access the variable anywhere like `process.env.VARIABLE_NAME` or in `import.meta.env.VITE_APP_VARIABLE_NAME`.
 6. Be sure to notify your devops to update the `.env` file on development, staging, and production.
 
-## Creating a model
+### Creating a model
 
 1. Create a TypeOrm [entity](https://typeorm.io/entities) in `server/src/app/model`
-2. No need to the entity to `databse/TypeOrmConfig.ts` to `entities`, because they are automatically loaded.
+2. No need to add the entity to `databse/TypeOrmConfig.ts` to `entities`, because they are automatically loaded.
 3. Create a migration file with `npm run migrate create this is migration name` (see `ARCHITECTURE.md` for more info)
 
-## UseCases
-
-To create a new use case run `npm run create-usecase DIR NAME`
-- `DIR` - directory inside `src/app/usecases` to create the usecase in (must exist)
-- `NAME` - name of new use case
-
-
-UseCase represents one feature, and one API endpoint.
-
-These implementations should be endpoint specific and **NOT** reused - if you need some reusable logic, define it in the `app.services` or some other appropriate utility and reuse it from there.
-
-
-## Services
+### Services
 
 Services are different from `UseCase`s:
 
@@ -311,52 +305,50 @@ Services are different from `UseCase`s:
 
 If the service operates with the database, the first argument to all functions is `t: TypeOrmEntityManager` which gives the control of the transaction to the function caller.
 
+### TypeORM Quirks
 
-## TypeORM Quirks
-
-### Breaking changes
+#### Breaking changes
 
 TypeORM is currently ([v0.3.x](https://github.com/typeorm/typeorm/pull/8616)) having a lot of breaking changes, and is due to have more in the next version ([v0.4.x](https://github.com/typeorm/typeorm/issues/3251)).
 
-### @OneToOne and @ManyToMany
+#### @OneToOne and @ManyToMany
 Not really an issue, just lack of control and proper documentation for OneToOne and ManyToMany relationships led me to avoid it and develop all relationships as OneToMany/ManyToOne, with a join table as an @Entity in case of @ManyToMany.
 
 Another argument is that OneToOne and ManyToMany relationships don't exist in the relational sense, but foreign keys map to ManyToOne perfectly.
 
-### Avoid using TypeORM `Repository`, `Manager`, or ANY transaction decorator
+#### Avoid using TypeORM `Repository`, `Manager`, or ANY transaction decorator
 Correct ways of using transactions:
 
 - UseCase transaction (preferred) - use `t` injected to all UseCases as a second argument of the `.execute` method.
 - global connection - import `db` and use it like `db.transaction(t => ...)`
 
-### Avoid using eager/lazy loading
+#### Avoid using eager/lazy loading
 Avoid using eager and lazy relations ([see here](https://typeorm.io/eager-and-lazy-relations)). Lacks control and makes the code more complex - always specify relations to load at query time.
 Also, set possible for deprecation by the package owner/maintainer.
 
-### @Entity default values
+#### @Entity default values
 Do not declare default values of fields in Entity classes because not-selected columns will assume those default values (when partially selecting).
 
-### Avoid relation property initializers
+#### Avoid relation property initializers
 Here is a very nice [explanation](https://typeorm.io/relations-faq#avoid-relation-property-initializers) of this issue.
 Also, to extend this rule, do not use initializers on neither relations nor properties (columns).
 
-## Deprecated
+**Deprecated**
 
 Following are the issues from `v0.2`, but should be resolved in currently used `v0.3`. They are kept here, just in case.
 
-### .findOne
+#### .findOne
 When using `.findOne()` or `.findOneOrFail()`, be sure to pass in the id like this `.findOneOrFail({where: {id: userId}})` instead of like this `.findOneOrFail(userId)`.
 
 Using the latter (wrong) format causes the TypeORM to pull the first entity from the table if the id provided is `null` or `undefined`, the logic being that `null` or `undefined` means "apply no filters, just pull one entity".
 
-### .softDelete
+#### .softDelete
 When using `.softDelete` be sure to pass in **just the id** `userRepo.softDelete(user.id)` rather than the whole entity `userRepo.softDelete(user)`.
 
 Passing in the whole entity causes TypeORM to generate an UPDATE query with one WHERE clause **for each** property of the entity, meaning that if any property changed the entity would not be updated (soft-deleted).
 **Deletion should be done strictly by entity's id (primary key).**
 
-
-# TypeScript
+### TypeScript
 
 TypeScript -- a story so big it deserves a file of its own.
 
@@ -367,7 +359,7 @@ Resources:
 
 A lot of rules are enforced by `tsconfig.json`, as well as `.eslintrc` (linter tool) -- we rely on those mainly to ensure code consistency and, to some degree, prevent programming errors.
 
-## Enums
+#### Enums
 
 As enums are poorly implemented in TypeScript (see [this](https://www.reddit.com/r/typescript/comments/j3vp9d/should_i_use_enums_or_strings/) discussion for example), use string unions to represent types like this:
 ```typescript
@@ -377,6 +369,6 @@ export const isPet = (value: unknown): value is Pet => Pets.includes(value as Pe
 ```
 The above gives us both type and a runtime array of all values, without duplicating the code.
 
-## Avoid creating modules with side effects
+### Avoid creating modules with side effects
 
 Avoid creating modules who's importing leads to side effects (e.g. initializing objects or connections on module's top level), rather export functions which do said behavior, therefore giving the caller the control of when the module's logic will be executed.
