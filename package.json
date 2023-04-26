@@ -8,7 +8,7 @@
     "dev:client": "cd client && vite",
     "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\" --kill-others-on-fail",
     "build:server": "tsc -b server && tsc-alias -p server/tsconfig.json",
-    "build:client": "cd client && tsc && vite",
+    "build:client": "cd client && tsc && vite build",
     "build": "npm run build:server && npm run build:client",
     "start": "npm run build && node ./dist/server/src/index.js",
     "test": "vitest --passWithNoTests",
