@@ -34,8 +34,8 @@ async function main() {
         // fix for HMR to not attempt to connect multiple time to the db
         if (!db.isInitialized) await db.initialize()
 
-        // VITE dev server is used in development
         // Call app.listen only for production env
+        // for development VITE dev server is used, see the viteExpress plugin in .dev folder
         if (!process.env['VITE_DEV_SERVER']) {
             const frontendFiles = process.cwd() + '/dist/client'
             app.use(express.static(frontendFiles))
