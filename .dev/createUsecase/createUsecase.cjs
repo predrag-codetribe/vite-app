@@ -2,13 +2,13 @@ const fs = require('fs')
 
 const USE_CASE_TEMPLATE = '' +
 `import { z } from 'zod'
-import { createUseCase } from '../../../modules/controller/UseCase'
+import { createUseCase } from '@/framework/controller/UseCase'
 
 
 export const REPLACE_ME = createUseCase({
 
     input: z.object({
-    
+
     }),
 
     output: z.void(),
@@ -30,7 +30,7 @@ const main = () => {
 
     // improvement: check if directory exists
 
-    const path = `./src/app/usecases/${directory}/${useCaseFileName}`
+    const path = `./server/src/app/usecases/${directory}/${useCaseFileName}`
     const code = USE_CASE_TEMPLATE.replace('REPLACE_ME', useCaseName)
 
     fs.writeFileSync(path, code, function (err) {

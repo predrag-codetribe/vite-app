@@ -1,18 +1,28 @@
 # Getting started
 
+1. Run `npm install`
+2. Create a .env file based on .env.example.
+3. Setup DB.
+4. Execute the following sql code on the database:
+- `./server/resources/db-schema.sql`
+5. Start the app in development mode. `npm run dev` or start the app for production `npm start`.
+
+
 <!--toc:start-->
 - [Getting started](#getting-started)
     - [Tech Stack and Libraries:](#tech-stack-and-libraries)
+    - [GETTING STARTED](#getting-started)
     - [Scripts:](#scripts)
       - [`npm run dev`](#npm-run-dev)
       - [`npm run build`](#npm-run-build)
-      - [`npm run preview`](#npm-run-preview)
+      - [`npm start`](#npm-start)
       - [`npm run test`](#npm-run-test)
       - [`npm run lint`](#npm-run-lint)
       - [`npm run lint-fix`](#npm-run-lint-fix)
       - [`npm run translate`](#npm-run-translate)
       - [`npm run find-unused-translations`](#npm-run-find-unused-translations)
       - [`npm run storybook`](#npm-run-storybook)
+      - [`npm run create-usecase [DIR_NAME] [FILENAME]`](#npm-run-create-usecase-dirname-filename)
     - [Translations](#translations)
     - [Design system](#design-system)
     - [TailwindCSS](#tailwindcss)
@@ -20,9 +30,9 @@
     - [ESLint](#eslint)
     - [Husky](#husky)
     - [Tests](#tests)
-    - [Context store](#context-store)
-    - [Folder structure](#folder-structure)
     - [Things to Know](#things-to-know)
+    - [Debug the App](#debug-the-app)
+    - [Folder structure](#folder-structure)
 <!--toc:end-->
 
 
@@ -33,7 +43,10 @@
 - React Query
 - TailwindCSS
 - i18next
-- Vite, Vitest, Eslint, Husky
+- Vite, Vitest, Eslint, Husky, Storybook
+- Express
+- TypeOrm
+- Zod
 
 ### Scripts:
 
@@ -43,11 +56,11 @@ Starts the dev server.
 
 #### `npm run build`
 
-Build the app.
+Build the app for production.
 
 #### `npm start`
 
-Build the app and server the build app.
+Build the app for production and start the server.
 
 #### `npm run test`
 
@@ -74,6 +87,10 @@ Gives you a list of unused translation keys.
 #### `npm run storybook`
 
 Open StoryBook documentation.
+
+#### `npm run create-usecase [DIR_NAME] [FILENAME]`
+
+Will create a template file in `server/src/app/usecase/[DIR_NAME]/[FILENAME]`.
 
 ### Translations
 
@@ -216,11 +233,7 @@ VS code debug configuration:
 ├── index.html - Vite entry point
 ├── package.json
 ├── server
-│   ├── src
-│   │   └── index.ts
-│   ├── tsconfig.json
-│   └── utils
-│       └── someFile.ts
+│   └── TODO: document this
 ├── shared
 │   └── protocol.ts
 ├── tailwind.config.cjs
