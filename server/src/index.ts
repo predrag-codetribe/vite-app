@@ -18,7 +18,7 @@ app.get('/api/test', (_, res) => {
 
 // app.listen only for production env, else use VITE dev server
 if (!process.env['VITE_DEV_SERVER']) {
-    const frontendFiles = process.cwd() + '/distClient'
+    const frontendFiles = process.cwd() + '/dist/client'
 
     app.use(express.static(process.cwd() + '/public'))
     app.use(express.static(frontendFiles))

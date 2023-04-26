@@ -9,7 +9,7 @@ import { express } from './.dev/viteExpress/viteExpress'
 // https://vitejs.dev/config/
 export default defineConfig({
     build: {
-        outDir: 'distClient'
+        outDir: './dist/client'
     },
     plugins: [
         react(),

@@ -3,7 +3,7 @@
     "module": "CommonJS",
     "target": "ES2021",
     "esModuleInterop": true,
-    "outDir": "../distServer",
+    "outDir": "../dist/server",
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
     "alwaysStrict": true, // Ensures that your files are parsed in the ECMAScript strict mode
