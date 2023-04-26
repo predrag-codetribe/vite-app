@@ -1,32 +1,61 @@
+// import reflect-metadata ASAP, important for decorators to work (TypeOrm)
+import 'reflect-metadata'
+
+// load environment variables
+import * as dotenv from 'dotenv'
 import express from 'express'
-import dotenv from 'dotenv'
-import path from 'path'
-import { Person, num } from '@/shared/protocol'
 
 dotenv.config()
 
-export const app = express()
+// this makes 'production' the default
+// see https://nodejs.dev/learn/nodejs-the-difference-between-development-and-production
+process.env.NODE_ENV = process.env.NODE_ENV || 'production'
+
+// initialize logger
+import { logOutput } from './framework/logging/LogOutput'
+
+// handle unhandled rejection (pun intended)
+import { LoggingUtil } from './framework/logging/LoggingUtil'
+process.on('unhandledRejection', LoggingUtil.logUnhandledPromiseRejection)
+
+// regular imports, order not important
+import { db } from './framework/database/TypeOrmConfig'
+import { setupApp } from './App'
+import { mapError } from './framework/utils/JavaScriptUtils'
+import path from 'path'
+
+export const app = setupApp()
 const PORT = process.env.PORT
 
-app.get('/api/test', (_, res) => {
-    const x: Person = {
-        name: '32'
+async function main() {
+    try {
+        logOutput.info('Server booting...')
+
+        // fix for HMR to not attempt to connect multiple time to the db
+        if (!db.isInitialized) await db.initialize()
+
+        // VITE dev server is used in development
+        // Call app.listen only for production env
+        if (!process.env['VITE_DEV_SERVER']) {
+            const frontendFiles = process.cwd() + '/dist/client'
+            app.use(express.static(frontendFiles))
+
+            app.get('/*', (_, res) => {
+                res.sendFile(path.resolve(frontendFiles, 'index.html'))
+            })
+
+            app.listen(PORT)
+            // eslint-disable-next-line no-console
+            console.log(`http://localhost:${PORT}`)
+        }
+
+        logOutput.info('Server booted successfully!')
+    } catch(err) {
+        const e = mapError(err)
+        logOutput.error('Error booting server')
+        logOutput.error(e)
     }
-
-    res.json({ greeting: 'Helopp', x, num })
-})
-
-// app.listen only for production env, else use VITE dev server
-if (!process.env['VITE_DEV_SERVER']) {
-    const frontendFiles = process.cwd() + '/dist/client'
-
-    app.use(express.static(frontendFiles))
-
-    app.get('/*', (_, res) => {
-        res.sendFile(path.resolve(frontendFiles, 'index.html'))
-    })
-
-    app.listen(PORT)
-    // eslint-disable-next-line no-console
-    console.log(`http://localhost:${PORT}`)
 }
+
+main()
+

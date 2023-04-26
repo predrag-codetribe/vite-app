@@ -9,8 +9,15 @@ interface ImportMetaEnv {
 
 declare namespace NodeJS {
     export interface ProcessEnv {
-    DB_CONNECTION: string;
+    NODE_ENV: "development" | "production" | "test";
+    APP_ENV: string;
     PORT: string;
+    DATABASE_URL: string;
+    SENTRY_DSN: string;
+    RATE_LIMIT_WINDOW_MS: string;
+    RATE_LIMIT_PUBLIC_MAX_PER_WINDOW: string;
+    RATE_LIMIT_AUTH_MAX_PER_WINDOW: string;
+    JWT_PUBLIC_KEY: string;
 }
 }
     

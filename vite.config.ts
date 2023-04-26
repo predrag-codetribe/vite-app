@@ -23,8 +23,18 @@ export default defineConfig({
                 VITE_BACKEND_BASE_URL: z.string(),
             }),
             secret: (z) => z.object({
-                DB_CONNECTION: z.string(),
-                PORT: z.string()
+                NODE_ENV: z.enum([ 'development', 'production', 'test' ]),
+                APP_ENV: z.string(),
+                PORT: z.string(),
+
+                DATABASE_URL: z.string(),
+
+                SENTRY_DSN: z.string(),
+                RATE_LIMIT_WINDOW_MS: z.string(),
+                RATE_LIMIT_PUBLIC_MAX_PER_WINDOW: z.string(),
+                RATE_LIMIT_AUTH_MAX_PER_WINDOW: z.string(),
+
+                JWT_PUBLIC_KEY: z.string()
             }),
         })
     ]

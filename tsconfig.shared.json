@@ -18,5 +18,15 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noPropertyAccessFromIndexSignature": true,
+
+    /**
+     * Language and Environment
+     * Since decorators do not exist in JavaScript (stage 3 proposal, https://github.com/tc39/proposal-decorators)
+     *  we need to enable them explicitly.
+     * Here we enable decorators to be used by TypeORM.
+     * If we migrate to a different ORM that does not use decorators, disable them.
+     */
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
   }
 }

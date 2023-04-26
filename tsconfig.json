@@ -21,6 +21,5 @@
     "client",
     ".dev/**/*.d.ts",
     "shared",
-    "server"
   ],
 }

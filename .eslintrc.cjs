@@ -4,6 +4,13 @@ module.exports = {
     'browser': true,
     'es2021': true
   },
+  'parser': '@typescript-eslint/parser',
+  'parserOptions': {
+    'ecmaVersion': 'latest',
+    'sourceType': 'module',
+    'tsconfigRootDir': __dirname,
+    'project': ['./server/tsconfig.json', './tsconfig.json']
+  },
   'ignorePatterns': ['.dev/**', "*.cjs", "vite.config.ts", "dist*"],
   'extends': ['eslint:recommended', 'plugin:@typescript-eslint/recommended', 'plugin:react/recommended', 'plugin:react/jsx-runtime', 'plugin:react-hooks/recommended', 'plugin:@typescript-eslint/recommended-requiring-type-checking', 'plugin:storybook/recommended'],
   'overrides': [
@@ -53,13 +60,6 @@ module.exports = {
       }
     }
   ],
-  'parser': '@typescript-eslint/parser',
-  'parserOptions': {
-    'ecmaVersion': 'latest',
-    'sourceType': 'module',
-    'tsconfigRootDir': __dirname,
-    'project': ['./tsconfig.json', './tsconfig.shared.json', './server/tsconfig.json']
-  },
   'plugins': ['@typescript-eslint', 'react', 'react-hooks'],
   'settings': {
     'react': {
@@ -78,7 +78,7 @@ module.exports = {
     'no-console': ['error', {
       'allow': ['warn', 'error']
     }],
-    '@typescript-eslint/indent': ['error', 4],
+    // '@typescript-eslint/indent': ['error', 4],
     'quotes': ['error', 'single'],
     'jsx-quotes': ["error", "prefer-single"],
     '@typescript-eslint/semi': ['error', 'never'],
@@ -112,12 +112,13 @@ module.exports = {
       'ignoreProps': true,
       'noAttributeStrings': false
     }],
-    '@typescript-eslint/strict-boolean-expressions': ['error', {
-      'allowNullableString': true,
-      'allowNullableNumber': true
-    }],
     // turn off
     '@typescript-eslint/no-misused-promises': 'off',
-    '@typescript-eslint/no-floating-promises': 'off'
+    '@typescript-eslint/no-floating-promises': 'off',
+    '@typescript-eslint/restrict-template-expressions': "off",
+    '@typescript-eslint/no-unused-vars': 'off', // we have tsconfig noUnusedLocals enabled
+    '@typescript-eslint/no-unsafe-assignment': 'off',
+    '@typescript-eslint/no-unsafe-argument': 'off',
+    '@typescript-eslint/no-unsafe-member-access': 'off'
   }
 };
