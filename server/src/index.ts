@@ -3,8 +3,10 @@ import 'reflect-metadata'
 
 // load environment variables
 import * as dotenv from 'dotenv'
+import { validateEnv } from './framework/validation/EnvValidator'
 
 dotenv.config()
+validateEnv()
 
 // this makes 'production' the default
 // see https://nodejs.dev/learn/nodejs-the-difference-between-development-and-production
