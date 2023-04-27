@@ -1,6 +1,14 @@
 {
   "name": "server",
   "version": "1.0.0",
+  "scripts": {
+    "dev": "nodemon  -r tsconfig-paths/register ./src/index.ts",
+    "build": "tsc && tsc-alias",
+    "start": "node ../dist/server/src/index.js",
+    "lint": "eslint ./src",
+    "lint-fix": "eslint --fix ./src",
+    "create-usecase": "node ../.dev/createUsecase/createUsecase.cjs"
+  },
   "dependencies": {
     "@sentry/node": "7.49.0",
     "date-fns": "2.29.3",
@@ -29,16 +37,5 @@
     "tsc-alias": "^1.8.6",
     "tsconfig-paths": "^4.2.0",
     "typescript": "5.0.4"
-  },
-  "scripts": {
-    "dev": "nodemon  -r tsconfig-paths/register ./src/index.ts",
-    "build": "tsc && tsc-alias",
-    "start": "node ../dist/server/src/index.js",
-    "lint": "eslint ./src",
-    "lint-fix": "eslint --fix ./src",
-    "create-usecase": "node ../.dev/createUsecase/createUsecase.cjs"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  }
 }

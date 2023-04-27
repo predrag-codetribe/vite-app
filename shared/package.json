@@ -1,15 +1,10 @@
 {
   "name": "@app/shared",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
   "devDependencies": {},
   "scripts": {
     "lint": "eslint .",
     "lint-fix": "eslint --fix .",
     "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  }
 }

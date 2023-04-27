@@ -1,5 +1,5 @@
 import { logOutput } from '../logging/LogOutput'
-import { ENV_SCHEMA } from '../../../.env.validate'
+import { ENV_SCHEMA } from '@/../.env.validate'
 
 export const validateEnv = () => {
     const parseResult = ENV_SCHEMA.safeParse(process.env)
