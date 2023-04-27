@@ -75,11 +75,11 @@ Starts the dev server.
 
 #### `npm run build`
 
-Build the app for production.
+Build the dist/ folder for the client and server app for production.
 
 #### `npm start`
 
-Build the app for production and start the server.
+Start the build production server.
 
 #### `npm run test`
 
