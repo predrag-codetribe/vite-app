@@ -9,10 +9,10 @@ export function useGet<Path extends API_PATHS>(path: Path, input: ApiInput<Path>
             queryFn: async () => (await backend.request<ApiOutput<Path>>({
                 method: 'get',
                 url: path,
-                params: input
+                params: input,
             })).data,
-            ...options
-        }
+            ...options,
+        },
     )
 }
 
@@ -22,12 +22,12 @@ export function usePost<Path extends API_PATHS>(path: Path, { onSuccess, ...othe
         mutationFn: async (data: ApiInput<Path>) => (await backend.request<ApiOutput<Path>>({
             method: 'post',
             url: path,
-            data
+            data,
         })).data,
         onSuccess(...args) {
             if (onSuccess) onSuccess(...args)
             else invalidateQueryClient(path)
-        }
+        },
     })
 }
 

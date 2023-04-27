@@ -3,7 +3,7 @@ import { useSearchParams } from 'react-router-dom'
 
 type NewQuery<T> = T | null | undefined // passing null or undefined will remove the query
 
-export function useQueryParam(key: string ): [
+export function useQueryParam(key: string): [
     string | null,
     (newQuery: NewQuery<unknown>) => void
 ] {
@@ -27,7 +27,7 @@ export function useQueryParam(key: string ): [
         if (oldSearchParamsString === newSearchParams.toString()) return
         setSearchParams(newSearchParams, { replace: true })
     },
-    [ key, setSearchParams ]
+    [ key, setSearchParams ],
     )
 
     return [ value, setValue ]
@@ -49,7 +49,7 @@ export function useBooleanQueryParam(key: string): [
     return [ value, setQuery ]
 }
 
-export function useArrayQueryParam(key: string ): [
+export function useArrayQueryParam(key: string): [
     string[],
     (newQuery: NewQuery<unknown[]>) => void
 ] {

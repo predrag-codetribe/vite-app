@@ -18,6 +18,6 @@ export const APIS = {
         output: z.object({
             id: z.string().uuid(),
         }),
-    }
+    },
 } satisfies Record<ApiPath, API>
 

@@ -30,7 +30,7 @@ async function main() {
         await db.initialize()
         setupApp()
         logOutput.info('Server booted successfully!')
-    } catch(err) {
+    } catch (err) {
         logOutput.error('Error booting server')
         logOutput.error(mapError(err))
     }

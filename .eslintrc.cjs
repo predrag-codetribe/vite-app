@@ -11,13 +11,14 @@ module.exports = {
     'tsconfigRootDir': __dirname,
     'project': ['./server/tsconfig.json', './client/tsconfig.json']
   },
-  'ignorePatterns': ['.dev/**', "*.cjs", "vite.config.ts", "env.validate.ts", "dist*"],
+  'ignorePatterns': ['.dev/**', '*.cjs', 'vite.config.ts', 'env.validate.ts', 'dist*'],
   'extends': ['eslint:recommended', 'plugin:@typescript-eslint/recommended', 'plugin:react/recommended', 'plugin:react/jsx-runtime', 'plugin:react-hooks/recommended', 'plugin:@typescript-eslint/recommended-requiring-type-checking', 'plugin:storybook/recommended'],
   'overrides': [
+    //// Restrict imports
     {
       'files': ['shared/**/*'],
       'rules': {
-        'no-restricted-imports': ["error", {
+        'no-restricted-imports': ['error', {
           'patterns': [{
             'group': ['client/', 'server/'],
             'message': 'Cannot import client or server code in the shared folder.'
@@ -28,7 +29,7 @@ module.exports = {
     {
       'files': ['client/**/*'],
       'rules': {
-        'no-restricted-imports': ["error", {
+        'no-restricted-imports': ['error', {
           'patterns': [{
             'group': ['server/'],
             'message': 'Cannot import server code in the client folder. If you want, move that code to the shared folder.'
@@ -39,7 +40,7 @@ module.exports = {
     {
       'files': ['server/**/*'],
       'rules': {
-        'no-restricted-imports': ["error", {
+        'no-restricted-imports': ['error', {
           'patterns': [{
             'group': ['client/'],
             'message': 'Cannot import client code in the server folder. If you want, move that code to the shared folder.'
@@ -73,31 +74,14 @@ module.exports = {
     }
   },
   'rules': {
+    //// JSX
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': ['warn', {
       'additionalHooks': '(useNoInitialEffect)' // '(useNoInitialEffect|useSomeOtherEffect)'
     }],
 
-    'no-multiple-empty-lines': ['error', {
-      'max': 1
-    }],
-    'no-console': ['error', {
-      'allow': ['warn', 'error']
-    }],
-    '@typescript-eslint/indent': ['error', 4],
-    'quotes': ['error', 'single'],
-    'jsx-quotes': ["error", "prefer-single"],
-    '@typescript-eslint/semi': ['error', 'never'],
-    'object-curly-spacing': ['warn', 'always'],
     'react/jsx-curly-spacing': ['warn', {
       'when': 'never'
-    }],
-    'no-multi-spaces': 'warn',
-    'array-bracket-spacing': ['error', 'always', {
-      'singleValue': false
-    }],
-    'space-infix-ops': ['error', {
-      'int32Hint': false
     }],
     'react/jsx-tag-spacing': ['warn', {
       'closingSlash': 'never',
@@ -118,10 +102,83 @@ module.exports = {
       'ignoreProps': true,
       'noAttributeStrings': false
     }],
-    // turn off
+
+    //// Layout & Formatting // https://eslint.org/docs/rules/#layout-formatting
+    'no-multiple-empty-lines': ['error', {
+      'max': 1
+    }],
+    'no-console': ['error', {
+      'allow': ['warn', 'error']
+    }],
+    '@typescript-eslint/indent': ['error', 4],
+    'quotes': ['error', 'single'],
+    'jsx-quotes': ['error', 'prefer-single'],
+    '@typescript-eslint/semi': ['error', 'never'],
+    'object-curly-spacing': ['warn', 'always'],
+    'no-multi-spaces': 'warn',
+    'no-tabs': 'error',
+    'no-trailing-spaces': 'error',
+    'no-whitespace-before-property': 'error',
+    'operator-linebreak': ['error', 'before'],
+    'rest-spread-spacing': ['error', 'never'],
+    'space-in-parens': ['error', 'never'],
+    'wrap-iife': ['error', 'inside'],
+    'wrap-regex': ['error'],
+    'array-bracket-spacing': ['error', 'always', {
+      'singleValue': false
+    }],
+    'block-spacing': ['error', 'always'],
+    'brace-style': ['error', '1tbs'],
+    'comma-dangle': ['error', 'always-multiline'],
+    'dot-location': ['error', 'property'],
+    'eol-last': ['error', 'always'],
+    'func-call-spacing': ['error', 'never'],
+    'key-spacing': 'error',
+    'keyword-spacing': 'error',
+    'linebreak-style': ['error', 'unix'],
+    'max-statements-per-line': 'error',
+    'new-parens': 'error',
+    'space-infix-ops': ['error', {
+      'int32Hint': false
+    }],
+
+    '@typescript-eslint/ban-ts-comment': [
+      'error',
+      {
+        'ts-expect-error': 'allow-with-description',
+        'ts-ignore': true,
+        'ts-nocheck': true,
+        'ts-check': true,
+        'minimumDescriptionLength': 25
+      }
+    ],
+    '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
+
+    //// Possible Problems // https://eslint.org/docs/rules/#possible-problems
+    'array-callback-return': ['error'],
+    'no-await-in-loop': 'error',
+    'no-constant-binary-expression': 'error',
+    'no-constructor-return': 'error',
+    'no-duplicate-imports': 'off',
+    '@typescript-eslint/no-duplicate-imports': 'error',
+    'no-promise-executor-return': 'error',
+    'no-self-compare': 'error',
+    'no-template-curly-in-string': 'error',
+    'no-unmodified-loop-condition': 'error',
+    'no-unreachable-loop': 'error',
+    'no-unused-private-class-members': 'error',
+    'require-atomic-updates': 'warn',
+
+    //// Suggestions // https://eslint.org/docs/rules/#suggestions
+    'consistent-this': 'error',
+    'eqeqeq': 'error',
+    'func-name-matching': 'error',
+    'func-names': 'error',
+
+    //// turn off
     '@typescript-eslint/no-misused-promises': 'off',
     '@typescript-eslint/no-floating-promises': 'off',
-    '@typescript-eslint/restrict-template-expressions': "off",
+    '@typescript-eslint/restrict-template-expressions': 'off',
     '@typescript-eslint/no-unused-vars': 'off', // we have tsconfig noUnusedLocals enabled
     '@typescript-eslint/no-unsafe-assignment': 'off',
     '@typescript-eslint/no-unsafe-argument': 'off',

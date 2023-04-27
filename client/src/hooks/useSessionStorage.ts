@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 
 export function useSessionStorage<T>(
     key: string,
-    initialValue?: T
+    initialValue?: T,
 ): [T, (value: T) => void] {
     const [ state, setState ] = useState<T>(() => {
         try {

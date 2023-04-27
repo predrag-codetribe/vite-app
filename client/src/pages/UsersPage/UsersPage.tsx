@@ -13,7 +13,7 @@ export default function UsersPage() {
     const { data: users, status } = useGetAllUsers({
         limit,
         offset,
-        searchQuery: debounceSearchQuery ?? ''
+        searchQuery: debounceSearchQuery ?? '',
     })
 
     return <div>

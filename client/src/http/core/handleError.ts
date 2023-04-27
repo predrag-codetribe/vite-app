@@ -18,7 +18,7 @@ export function handleError(error: unknown) {
     }
 
     // handle cognito errors
-    if(isAuthError(error)) {
+    if (isAuthError(error)) {
         toast(error.message)
         return
     }

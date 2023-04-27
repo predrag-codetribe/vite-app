@@ -2,7 +2,7 @@ import { useMutation, useQuery, UseQueryOptions } from '@tanstack/react-query'
 import { backend, queryClient, PaginatedResponse } from '@/http/core/backend'
 
 const keys = {
-    getAllUsers: 'getAllUsers'
+    getAllUsers: 'getAllUsers',
 }
 
 export const useCreateUser = () => {
@@ -10,12 +10,12 @@ export const useCreateUser = () => {
         async (data: CreateUserRequest) => backend.request({
             method: 'post',
             url: '/users',
-            data
+            data,
         }), {
             onSuccess() {
                 queryClient.invalidateQueries([keys.getAllUsers])
-            }
-        }
+            },
+        },
     )
 }
 
@@ -25,9 +25,9 @@ export const useGetAllUsers = (params: GetAllUsersParams, options: UseQueryOptio
         async () => (await backend.request<GetAllUsersResponse>({
             method: 'get',
             url: '/users',
-            params
+            params,
         })).data,
-        options
+        options,
     )
 }
 

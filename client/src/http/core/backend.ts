@@ -6,7 +6,7 @@ export const queryClient = new QueryClient({
     defaultOptions: {
         queries: {
             retry: false,
-            onError: handleError
+            onError: handleError,
         },
     },
 })
@@ -19,13 +19,13 @@ export const backend = axios.create({
     },
 })
 
-backend.interceptors.request.use(function (config) {
+backend.interceptors.request.use(function onFulfilled(config) {
     const token = getJwtToken()
     if (token && config.headers) {
         config.headers['authorization'] = `Bearer ${token}`
     }
     return config
-}, function (error) {
+}, function onError(error) {
     return Promise.reject(error)
 })
 

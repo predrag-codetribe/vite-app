@@ -6,7 +6,7 @@ type RedirectProps = {
 }
 export function Redirect ({
     to,
-    keepSearchParams = false
+    keepSearchParams = false,
 }: RedirectProps) {
     const params = useParams()
 

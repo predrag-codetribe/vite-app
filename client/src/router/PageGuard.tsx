@@ -5,7 +5,7 @@ type Props = {
 }
 
 export const PageGuard = ({
-    element
+    element,
 }: Props) => {
     // TODO add page guard validation based on business logic
     return <Suspense fallback={<></>}>{element}</Suspense>

@@ -5,7 +5,7 @@
  */
 export const mapAsync = async <InputType, OutputType>(
     list: Array<InputType>,
-    func: (x: InputType) => Promise<OutputType>
+    func: (x: InputType) => Promise<OutputType>,
 ): Promise<Array<OutputType>> => {
 
     return await Promise.all(list.map(func))

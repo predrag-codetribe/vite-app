@@ -20,6 +20,6 @@ export function Portal({ id, children }: Props) {
 
     return createPortal(
         children,
-        el
+        el,
     )
 }

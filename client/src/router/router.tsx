@@ -13,13 +13,13 @@ export const router = createBrowserRouter([
         children: [
             {
                 path: '/',
-                element: <PageGuard element={<HomePage />} />
+                element: <PageGuard element={<HomePage />} />,
             },
             {
                 path: '/users',
-                element: <PageGuard element={<UsersPage />} />
-            }
-        ]
+                element: <PageGuard element={<UsersPage />} />,
+            },
+        ],
     },
 ])
 

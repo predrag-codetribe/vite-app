@@ -17,7 +17,8 @@ export default function ActiveLink({ className = '', exact = false, activeClassN
     return (
         <NavLink {...rest}
             className={
-                () => { return` ${className} ${exactMatchClassName} ${partialMatchClassName}`
+                () => {
+                    return ` ${className} ${exactMatchClassName} ${partialMatchClassName}`
                 }
             } />
     )

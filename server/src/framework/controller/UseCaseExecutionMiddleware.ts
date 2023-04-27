@@ -20,7 +20,7 @@ export const createUseCaseExecutionMiddleware = (
     method: HttpMethod,
     route: string,
     useCase: ReturnType<typeof createUseCase>,
-    logResponseBody: boolean
+    logResponseBody: boolean,
 ): Middleware => asyncHandler(async (req, res, _next) => {
 
     // if method is GET we're loading fields from query params, for everything else we're loading the body
@@ -61,7 +61,7 @@ export const createUseCaseExecutionMiddleware = (
     if (startTransaction) {
         // execute usecase inside a transaction
         response = await db.transaction(
-            t => useCase.execute(useCaseContext, t)
+            t => useCase.execute(useCaseContext, t),
         )
     } else {
         // execute usecase without a transaction

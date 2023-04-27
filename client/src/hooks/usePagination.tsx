@@ -27,6 +27,6 @@ export function usePagination(options?: Configuration) {
         setPage,
         limit,
         offset,
-        getTotalPages
+        getTotalPages,
     }
 }

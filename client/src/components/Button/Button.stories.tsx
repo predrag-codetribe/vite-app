@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react'
 
 import { Button } from './Button'
 
@@ -7,17 +7,17 @@ export default {
     component: Button,
     parameters: {
         docs: {
-            page: () => Docs()
-        }
-    }
+            page: () => Docs(),
+        },
+    },
 
 } satisfies Meta<typeof Button>
 type Story = StoryObj<typeof Button>
 
 export const Primary: Story = {
     args: {
-        children: <p>Hello</p>
-    }
+        children: <p>Hello</p>,
+    },
 }
 
 export function Docs() {

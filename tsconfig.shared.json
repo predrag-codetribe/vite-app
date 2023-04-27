@@ -18,5 +18,6 @@
         "noUnusedLocals": true,
         "noUnusedParameters": true,
         "noPropertyAccessFromIndexSignature": true,
+        "importsNotUsedAsValues": "remove", // importsNotUsedAsValues - remove is the default, but we also define it explicitly
     }
 }

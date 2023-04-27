@@ -15,12 +15,12 @@ i18n
         interpolation: { escapeValue: false }, // React already does escaping
         resources: {
             en: { translation: enTranslations },
-            sr: { translation: srTranslations }
+            sr: { translation: srTranslations },
         },
         fallbackLng: 'en',
         returnEmptyString: true,
         supportedLngs: supportedLocales,
-        keySeparator: false // we are working with a flat json translations file, it's recommended to set keySeparator to false
+        keySeparator: false, // we are working with a flat json translations file, it's recommended to set keySeparator to false
     })
 
 export default i18n

@@ -10,5 +10,5 @@ export const GetMe = createUseCase({
         return Promise.resolve({
             id: 'x',
         })
-    }
+    },
 })
