@@ -15,7 +15,7 @@ import { corsHeadersMiddleware } from './framework/middleware/CorsHeadersMiddlew
 import path from 'path'
 
 const PORT = process.env.PORT
-const frontendFiles = process.cwd() + '/dist/client'
+const frontendFiles = path.resolve(process.cwd(), '../dist/client')
 
 export const setupApp = () => {
     logOutput.info('Booting the server...')
