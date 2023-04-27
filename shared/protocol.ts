@@ -9,6 +9,7 @@ export type API_PATHS = keyof typeof APIS
 export type ApiInput<T extends API_PATHS> = z.infer<typeof APIS[T]['input']>
 export type ApiOutput<T extends API_PATHS> = z.infer<typeof APIS[T]['output']>
 
+type Path = `get${string}` | `post${string}`
 export const APIS = {
     getMe: {
         input: z.object({}),
@@ -16,5 +17,5 @@ export const APIS = {
             id: z.string().uuid(),
         }),
     }
-} satisfies Record<string, API>
+} satisfies Record<Path, API>
 
