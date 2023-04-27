@@ -25,8 +25,7 @@ import { mapError } from './framework/utils/JavaScriptUtils'
 async function main() {
     try {
         logOutput.info('Server booting...')
-        // fix for HMR to not attempt to connect multiple time to the db
-        if (!db.isInitialized) await db.initialize()
+        await db.initialize()
         setupApp()
         logOutput.info('Server booted successfully!')
     } catch(err) {
