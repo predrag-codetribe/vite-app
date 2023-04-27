@@ -1,4 +1,4 @@
-import { API_PATHS, ApiInput, ApiOutput } from '@/shared/protocol'
+import { API_PATHS, ApiInput, ApiOutput } from '@app/shared/protocol'
 import { UseMutationOptions, UseQueryOptions, useMutation, useQuery } from '@tanstack/react-query'
 import { backend, queryClient } from './core/backend'
 

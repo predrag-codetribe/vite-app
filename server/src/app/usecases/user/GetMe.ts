@@ -1,5 +1,5 @@
 import { createUseCase } from '../../../framework/controller/UseCase'
-import { APIS } from '@/shared/protocol'
+import { APIS } from 'shared/protocol'
 
 export const GetMe = createUseCase({
     input: APIS.getMe.input,

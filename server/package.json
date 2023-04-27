@@ -1,0 +1,44 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "dependencies": {
+    "@sentry/node": "7.49.0",
+    "date-fns": "2.29.3",
+    "dotenv": "16.0.3",
+    "express": "4.18.2",
+    "express-ipfilter": "1.3.1",
+    "express-rate-limit": "6.7.0",
+    "helmet": "6.1.5",
+    "jsonwebtoken": "9.0.0",
+    "pg": "8.10.0",
+    "reflect-metadata": "0.1.13",
+    "typeorm": "0.3.15",
+    "typeorm-naming-strategies": "4.1.0",
+    "uuid": "9.0.0",
+    "winston": "3.8.2",
+    "zod": "3.21.4"
+  },
+  "devDependencies": {
+    "@types/express": "4.17.17",
+    "@types/jsonwebtoken": "9.0.1",
+    "@types/node": "18.16.0",
+    "@types/uuid": "9.0.1",
+    "concurrently": "8.0.1",
+    "nodemon": "^2.0.22",
+    "ts-node": "10.9.1",
+    "tsc-alias": "^1.8.6",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "5.0.4"
+  },
+  "scripts": {
+    "dev": "nodemon  -r tsconfig-paths/register ./src/index.ts",
+    "build": "tsc && tsc-alias",
+    "start": "node ../dist/server/src/index.js",
+    "lint": "eslint ./src",
+    "lint-fix": "eslint --fix ./src",
+    "create-usecase": "node ../.dev/createUsecase/createUsecase.cjs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

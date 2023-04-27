@@ -11,13 +11,10 @@ export const validateEnv = (options?: PluginOptions): Plugin => ({
     config: (config, env) => validate(config, env, options),
 })
 
-export type PluginOptions = {
-    public: (zod: typeof z) => z.AnyZodObject
-    secret: (zod: typeof z) => z.AnyZodObject
-}
+export type PluginOptions = z.AnyZodObject
 
-async function validate(userConfig: UserConfig, envConfig: ConfigEnv, options?: PluginOptions) {
-    if (!options) throw new Error('Missing configuration for vite-plugin-validate-env')
+async function validate(userConfig: UserConfig, envConfig: ConfigEnv, schema?: PluginOptions) {
+    if (!schema) throw new Error('Missing configuration for vite-plugin-validate-env')
 
     const resolvedRoot = normalizePath(
         userConfig.root ? path.resolve(userConfig.root) : process.cwd()
@@ -28,17 +25,11 @@ async function validate(userConfig: UserConfig, envConfig: ConfigEnv, options?: 
         : resolvedRoot
 
     const publicEnv = loadEnv(envConfig.mode, envDir, userConfig.envPrefix)
-    const secretEnv = loadEnv(envConfig.mode, envDir, '')
-
-    const publicSchema = options.public(z)
+    const publicSchema = schema
     const publicSchemaType = zodToTs(publicSchema, 'Env')
-
-    const secretSchema = options.secret(z)
-    const secretSchemaType = zodToTs(secretSchema, 'Env')
 
     try {
         publicSchema.parse(publicEnv)
-        secretSchema.parse(secretEnv)
     } catch (e) {
         console.error('Invalid environment variables:')
         throw e
@@ -50,9 +41,5 @@ async function validate(userConfig: UserConfig, envConfig: ConfigEnv, options?: 
 /// <reference types="vite-plugin-svgr/client" />
 
 interface ImportMetaEnv ${printNode(publicSchemaType.node)}
-
-declare namespace NodeJS {
-    export interface ProcessEnv ${printNode(secretSchemaType.node)}
-}
     `)
 }
