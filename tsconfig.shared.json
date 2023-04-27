@@ -1,5 +1,6 @@
 {
     "compilerOptions": {
+        "composite": true, //other ts configs extends this
         // shared options between the server and client
         "useDefineForClassFields": true,
         "skipLibCheck": true,
