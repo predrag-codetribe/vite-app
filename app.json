@@ -1,9 +1,0 @@
-{
-    "name": "heroku-vite-node",
-    "description": "Web app made of Vite + Node API",
-    "buildpacks": [
-        {
-            "url": "heroku/nodejs"
-        }
-    ]
-}
