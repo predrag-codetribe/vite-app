@@ -23,8 +23,8 @@ export const setupApp = () => {
     const app = express()
         .use(Sentry.Handlers.requestHandler())
 
-        // add headers for security https://expressjs.com/en/advanced/best-practice-security.html
-        // .use(helmet())
+    // add headers for security https://expressjs.com/en/advanced/best-practice-security.html
+    // .use(helmet())
 
     // disable CORS protection if we're in development
     // in production there's no need for CORS as we're on the same domain (server and client)
@@ -35,7 +35,9 @@ export const setupApp = () => {
 
     app
         // Endpoint for checking server health, returns 200
-        .use('/ping', (_req, res) => res.status(200).send())
+        .use('/ping', (_req, res) => {
+            res.status(200).send()
+        })
 
         // Parses all incoming requests bodies as json and stores it into req.body
         .use(express.json(PARSE_ALL_AS_JSON))
@@ -53,7 +55,7 @@ export const setupApp = () => {
             res.sendFile(path.resolve(frontendFiles, 'index.html'))
         })
 
-        app.listen(PORT)
-            // eslint-disable-next-line no-console
-            console.log(`http://localhost:${PORT}`)
+    app.listen(PORT)
+    // eslint-disable-next-line no-console
+    console.log(`http://localhost:${PORT}`)
 }

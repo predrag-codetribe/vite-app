@@ -4,7 +4,7 @@ import { backend, queryClient } from './core/backend'
 
 export function useGet<Path extends API_PATHS>(path: Path, input: ApiInput<Path>, options: UseQueryOptions<ApiOutput<Path>> = {}) {
     return useQuery<ApiOutput<Path>>(
-       {
+        {
             queryKey: [ path, input ],
             queryFn: async () => (await backend.request<ApiOutput<Path>>({
                 method: 'get',
@@ -12,22 +12,22 @@ export function useGet<Path extends API_PATHS>(path: Path, input: ApiInput<Path>
                 params: input
             })).data,
             ...options
-       }
+        }
     )
 }
 
 export function usePost<Path extends API_PATHS>(path: Path, { onSuccess, ...otherOptions }: UseMutationOptions<ApiOutput<Path>, unknown, ApiInput<Path>> = {}) {
     return useMutation({
-       ...otherOptions,
-       mutationFn: async (data: ApiInput<Path>) => (await backend.request<ApiOutput<Path>>({
+        ...otherOptions,
+        mutationFn: async (data: ApiInput<Path>) => (await backend.request<ApiOutput<Path>>({
             method: 'post',
             url: path,
             data
         })).data,
-       onSuccess(...args) {
-        if (onSuccess) onSuccess(...args)
-        else invalidateQueryClient(path)
-       }
+        onSuccess(...args) {
+            if (onSuccess) onSuccess(...args)
+            else invalidateQueryClient(path)
+        }
     })
 }
 

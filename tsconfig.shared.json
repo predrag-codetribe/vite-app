@@ -1,22 +1,22 @@
 {
-  "compilerOptions": {
-    // shared options between the server and client
-    "useDefineForClassFields": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "strictNullChecks": true,
-    "forceConsistentCasingInFileNames": true,
-    "isolatedModules": true,
-    "noImplicitAny": true,
-    "noImplicitOverride": true,
-    "noImplicitThis": true,
-    "allowUnreachableCode": false,
-    "allowUnusedLabels": false,
-    "alwaysStrict": true,
-    "exactOptionalPropertyTypes": false,
-    "strictPropertyInitialization": false, // "When set to true, TypeScript will raise an error when a class property was declared but not set in the constructor." , I've disabled this so that we can initialize fields AFTER constructing the object
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noPropertyAccessFromIndexSignature": true,
-  }
+    "compilerOptions": {
+        // shared options between the server and client
+        "useDefineForClassFields": true,
+        "skipLibCheck": true,
+        "strict": true,
+        "strictNullChecks": true,
+        "forceConsistentCasingInFileNames": true,
+        "isolatedModules": true,
+        "noImplicitAny": true,
+        "noImplicitOverride": true,
+        "noImplicitThis": true,
+        "allowUnreachableCode": false,
+        "allowUnusedLabels": false,
+        "alwaysStrict": true,
+        "exactOptionalPropertyTypes": false,
+        "strictPropertyInitialization": false, // "When set to true, TypeScript will raise an error when a class property was declared but not set in the constructor." , I've disabled this so that we can initialize fields AFTER constructing the object
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "noPropertyAccessFromIndexSignature": true,
+    }
 }

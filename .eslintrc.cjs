@@ -58,6 +58,12 @@ module.exports = {
       'rules': {
         'react/jsx-no-literals': 'off'
       }
+    },
+    {
+      'files': ['server/src/app/model/**/*'],
+      'rules': {
+        '@typescript-eslint/indent': 'off',
+      }
     }
   ],
   'plugins': ['@typescript-eslint', 'react', 'react-hooks'],
@@ -78,7 +84,7 @@ module.exports = {
     'no-console': ['error', {
       'allow': ['warn', 'error']
     }],
-    // '@typescript-eslint/indent': ['error', 4],
+    '@typescript-eslint/indent': ['error', 4],
     'quotes': ['error', 'single'],
     'jsx-quotes': ["error", "prefer-single"],
     '@typescript-eslint/semi': ['error', 'never'],

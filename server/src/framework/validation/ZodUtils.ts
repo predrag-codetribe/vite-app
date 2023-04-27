@@ -24,6 +24,6 @@ export const zodUtils = {
     }, z.boolean()),
 
     stringToInteger: z.preprocess((val) => {
-       return Number(val)
+        return Number(val)
     }, z.number().int()),
 } as const
