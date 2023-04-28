@@ -54,8 +54,7 @@
     "find-in-files": "0.5.0",
     "husky": "8.0.2",
     "node-fetch": "2.6.1",
-    "typescript": "5.0.4",
-    "zod-to-ts": "1.1.4"
+    "typescript": "5.0.4"
   },
   "workspaces": [
     "client",

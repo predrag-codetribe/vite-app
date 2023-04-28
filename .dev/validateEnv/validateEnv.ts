@@ -1,10 +1,7 @@
 import { loadEnv, normalizePath } from 'vite'
 import type { Plugin, ConfigEnv, UserConfig } from 'vite'
 import path from 'node:path'
-import fs from 'node:fs/promises'
-import url from 'url'
 import { z } from 'zod'
-import { zodToTs, printNode } from 'zod-to-ts'
 
 export const validateEnv = (options?: PluginOptions): Plugin => ({
     name: 'vite-plugin-validate-env',
@@ -26,7 +23,6 @@ async function validate(userConfig: UserConfig, envConfig: ConfigEnv, schema?: P
 
     const publicEnv = loadEnv(envConfig.mode, envDir, userConfig.envPrefix)
     const publicSchema = schema
-    const publicSchemaType = zodToTs(publicSchema, 'Env')
 
     try {
         publicSchema.parse(publicEnv)
