@@ -1,11 +1,9 @@
+/* eslint-disable @typescript-eslint/no-empty-interface */
+/* eslint-disable @typescript-eslint/consistent-type-definitions */
 /// <reference types="vite/client" />
 /// <reference types="vite-plugin-svgr/client" />
 
-import z from 'zod'
-import { ENV_SCHEMA } from '../.env.validate'
-
-type ImportMetaEnv = z.infer<typeof ENV_SCHEMA>
-
-type ImportMeta = {
-    readonly env: ImportMetaEnv
+type ENV_TYPE = import('zod').infer<typeof import('../.env.validate').ENV_SCHEMA>
+interface ImportMetaEnv extends ENV_TYPE {
+    // types for ImportMetaEnv are inferred with zod
 }
