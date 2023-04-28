@@ -5,7 +5,7 @@ import { GetMe } from './usecases/user/GetMe'
 
 const rateLimiter = rateLimit({
     windowMs: Number(process.env.RATE_LIMIT_WINDOW_MS),
-    max: Number(process.env.RATE_LIMIT_AUTH_MAX_PER_WINDOW),
+    max: Number(process.env.RATE_LIMIT_MAX),
     keyGenerator: req => req.headers['authorization'] ?? req.ip,
 })
 

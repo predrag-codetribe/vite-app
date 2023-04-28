@@ -9,8 +9,7 @@ export const ENV_SCHEMA = z.object({
 
     SENTRY_DSN: z.string(),
     RATE_LIMIT_WINDOW_MS: z.string(),
-    RATE_LIMIT_PUBLIC_MAX_PER_WINDOW: z.string(),
-    RATE_LIMIT_AUTH_MAX_PER_WINDOW: z.string(),
+    RATE_LIMIT_MAX: z.string(),
 
     JWT_PUBLIC_KEY: z.string()
 })
