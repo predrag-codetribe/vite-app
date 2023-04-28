@@ -13,8 +13,6 @@ export const db: DataSource = new DataSource({
     maxQueryExecutionTime: 1000, //  If query execution time exceed this given max execution time (in milliseconds) then logger will log this query.
     synchronize: false, // never change this
     entities: [
-        // TODO check if this works
-        'src/**/*.entity.js',
         // add new entities here
     ],
     namingStrategy: new SnakeNamingStrategy(),

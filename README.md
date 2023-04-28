@@ -302,8 +302,8 @@ Tip: Use Snyk to evaluate each dependency, for example [https://snyk.io/advisor/
 
 ### Creating a model
 
-1. Create a TypeOrm [entity](https://typeorm.io/entities) in `server/src/app/model`
-2. No need to add the entity to `databse/TypeOrmConfig.ts` to `entities`, because they are automatically loaded.
+1. Create a TypeOrm [entity](https://typeorm.io/entities) in `src/model`
+2. Add the entity to `src/config/TypeOrmConfig.ts` to `entities`
 3. Create a migration file with `npm run migrate create this is migration name` (see `ARCHITECTURE.md` for more info)
 
 ### Services
