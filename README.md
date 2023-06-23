@@ -1,5 +1,6 @@
 # Getting started
 
+
 > make sure to use npm
 > make sure to use node v18
 - `package.json` -> `engines` -> `node` - specify the correct version to be used for development and production (local and in CI).
