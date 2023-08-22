@@ -1,8 +1,8 @@
 import { DataSource } from 'typeorm'
 import { SnakeNamingStrategy } from 'typeorm-naming-strategies'
-
-// TODO solve this
-export const db: DataSource = new DataSource({
+import * as dotenv from 'dotenv'
+dotenv.config()
+const db: DataSource = new DataSource({
     type: 'postgres',
     url: process.env.DATABASE_URL,
 
@@ -15,7 +15,10 @@ export const db: DataSource = new DataSource({
     entities: [
         // add new entities here
     ],
+    migrations: ['migrations/*.ts'],
     namingStrategy: new SnakeNamingStrategy(),
     // ssl - required for Heroku
     // ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : false,
 })
+
+export default db

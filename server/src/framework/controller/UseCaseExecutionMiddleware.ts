@@ -1,5 +1,5 @@
 import { LoggingUtil } from '../logging/LoggingUtil'
-import { db } from '../database/TypeOrmConfig'
+import db from '../database/TypeOrmConfig'
 import { buildUseCaseContext } from './UseCaseContext'
 import { createUseCase } from './UseCase'
 import { asyncHandler } from './ExpressAsyncHandler'

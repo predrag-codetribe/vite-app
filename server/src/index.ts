@@ -20,7 +20,7 @@ import { LoggingUtil } from './framework/logging/LoggingUtil'
 process.on('unhandledRejection', LoggingUtil.logUnhandledPromiseRejection)
 
 // regular imports, order not important
-import { db } from './framework/database/TypeOrmConfig'
+import db from './framework/database/TypeOrmConfig'
 import { setupApp } from './App'
 import { mapError } from './framework/utils/JavaScriptUtils'
 

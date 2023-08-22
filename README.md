@@ -107,19 +107,6 @@ Gives you a list of unused translation keys.
 
 Open StoryBook documentation.
 
-#### `npm run create-usecase [DIR_NAME] [FILENAME]`
-
-Will create a template file in `server/src/app/usecase/[DIR_NAME]/[FILENAME]`.
-
-To create a new use case run `npm run create-usecase DIR_NAME FILENAME`
-- `DIR_NAME` - directory inside `src/app/usecases` to create the usecase in (must exist)
-- `FILENAME` - name of new use case
-
-
-UseCase represents one feature, and one API endpoint.
-
-These implementations should be endpoint specific and **NOT** reused - if you need some reusable logic, define it in the [Services](#services) or some other appropriate utility and reuse it from there.
-
 ### Translations
 
 The source of truth for the translations is this sheet:

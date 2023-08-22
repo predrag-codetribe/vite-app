@@ -14,40 +14,6 @@ module.exports = {
   'ignorePatterns': ['.dev/**', '*.cjs', 'vite.config.ts', 'env.validate.ts', 'dist*'],
   'extends': ['eslint:recommended', 'plugin:@typescript-eslint/recommended', 'plugin:react/recommended', 'plugin:react/jsx-runtime', 'plugin:react-hooks/recommended', 'plugin:@typescript-eslint/recommended-requiring-type-checking', 'plugin:storybook/recommended'],
   'overrides': [
-    //// Restrict imports
-    {
-      'files': ['shared/**/*'],
-      'rules': {
-        'no-restricted-imports': ['error', {
-          'patterns': [{
-            'group': ['client/', 'server/'],
-            'message': 'Cannot import client or server code in the shared folder.'
-          }]
-        }]
-      }
-    },
-    {
-      'files': ['client/**/*'],
-      'rules': {
-        'no-restricted-imports': ['error', {
-          'patterns': [{
-            'group': ['server/'],
-            'message': 'Cannot import server code in the client folder. If you want, move that code to the shared folder.'
-          }]
-        }]
-      }
-    },
-    {
-      'files': ['server/**/*'],
-      'rules': {
-        'no-restricted-imports': ['error', {
-          'patterns': [{
-            'group': ['client/'],
-            'message': 'Cannot import client code in the server folder. If you want, move that code to the shared folder.'
-          }]
-        }]
-      }
-    },
     {
       'files': ['*.cjs'],
       'rules': {

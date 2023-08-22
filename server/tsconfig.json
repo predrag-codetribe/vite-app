@@ -4,7 +4,7 @@
         "module": "CommonJS",
         "target": "ES2021",
         "esModuleInterop": true,
-        "outDir": "../dist",
+        "outDir": "./dist",
         "noEmit": false,
         "noFallthroughCasesInSwitch": true,
         "noImplicitReturns": true,
@@ -21,16 +21,12 @@
         "paths": {
             "@/*": [
                 "./src/*"
-            ],
-            "@app/shared/*": [
-                "../shared/*"
-            ],
+            ]
         }
     },
     "include": [
         "./*/**/*",
         "../.dev/**/*.d.ts",
-        "../shared"
     ],
     // below makes ts-node (debugger) see ProcessEnv.ts , among other things
     "ts-node": {

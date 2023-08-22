@@ -1,10 +1,12 @@
 import { createUseCase } from '@/framework/controller/UseCase'
-import { APIS } from '@app/shared/protocol'
+import z from 'zod'
 
 export const GetMe = createUseCase({
-    input: APIS.getMe.input,
+    input: z.object({}),
 
-    output: APIS.getMe.output,
+    output: z.object({
+        id: z.string(),
+    }),
 
     execute: async (_ctx) => {
         return Promise.resolve({
