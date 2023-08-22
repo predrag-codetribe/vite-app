@@ -6,11 +6,10 @@
 - `package.json` -> `devDependencies` -> `@types/node` - the major and minor versions should correspond to `node -v` major and minor versions.
 
 1. Run `npm install`
-2. Create a .env file based on .env.example.
-3. Setup DB.
-4. Execute the following SQL code on the database:
-- `npm run migrate:run` from the `/server` folder.
-5. Start the app in development mode. `npm run dev` or start the app for production `npm start`.
+2. Create a .env file based on .env.example. in both the client and server folders.
+3. Setup the DB by installing postgres.
+4. Execute the following `npm run migrate:run` from the `/server` folder.
+5. Start the app in development mode. `npm run dev` or start the app for production `npm start` (note when starting the app for production, make sure to run `npm run build`).
 
 
 <!--toc:start-->
@@ -59,7 +58,9 @@
 <!--toc:end-->
 
 ### Tech Stack and Libraries:
-- React and TypeScript
+- TypeScript
+- Express
+- React
 - React Router Dom
 - React Query
 - TailwindCSS
@@ -297,15 +298,14 @@ Tip: Use Snyk to evaluate each dependency, for example [https://snyk.io/advisor/
 
 1. Add the variable to your local `.env`
 2. Add the variable to `.env.example`
-4. Add schema validation in `vite.config.ts`
+4. Add schema validation in `.env.validate.ts` file.
 5. After this, the TypeScript will allow you to access the variable anywhere like `process.env.VARIABLE_NAME` or in `import.meta.env.VITE_APP_VARIABLE_NAME`.
 6. Be sure to notify your devops to update the `.env` file on development, staging, and production.
 
 ### Creating a model
 
-1. Create a TypeOrm [entity](https://typeorm.io/entities) in `src/model`
-2. Add the entity to `src/config/TypeOrmConfig.ts` to `entities`
-3. Create a migration file with `npm run migrate create this is migration name` (see `ARCHITECTURE.md` for more info)
+1. Create a TypeOrm [entity](https://typeorm.io/entities) in `src/model` (The entity will be automatically detected because of `entities` setting in `src/config/TypeOrmConfig.ts`)
+2. Create a migration file with`npm run migration:create --name=my_migration_name`.
 
 ### Services
 
