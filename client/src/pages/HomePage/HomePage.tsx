@@ -5,7 +5,10 @@ import { useTranslation } from 'react-i18next'
 export default function HomePage() {
     const { t } = useTranslation()
 
-    const { data: testData, status } = useQuery(['getTest'], () => publicApi.getTestId({ id: '3c50422a-f65a-48e0-9adc-2bde37871a81' }))
+    const { data: testData, status } = useQuery(
+        ['getTest'],
+        () => publicApi.getTestId({ id: '3c50422a-f65a-48e0-9adc-2bde37871a81' }),
+    )
 
     return <div>
         <p>{t('home_page.example')}</p>
