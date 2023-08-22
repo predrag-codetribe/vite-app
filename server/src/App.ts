@@ -3,7 +3,7 @@ import { getTest } from './app/usecases/getTest'
 
 export const runWebApp = () => {
     webApi({
-        name: 'SpvGovernanceAPI',
+        name: 'MyAppApi',
         baseRoute: (process.env.API_BASE_ROUTE || '/api'),
         version: '0.0.1',
         routers: [

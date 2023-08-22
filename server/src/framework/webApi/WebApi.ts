@@ -42,7 +42,7 @@ export const webApi = (spec: WebApiSpecification) => {
             crossOriginEmbedderPolicy: false,
             contentSecurityPolicy: {
                 useDefaults: true,
-                directives: { 'connect-src': [ '\'self\'', 'swissborg.io', '*.swissborg.io', '*.onelogin.com', '*.amazonaws.com' ] },
+                directives: { 'connect-src': ['\'self\''] },
             },
         }))
 

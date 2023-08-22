@@ -13,13 +13,7 @@ const translations = {
     'entity.not.found': 'Entity not found',
     'route.not.found': 'Route not found!',
 
-    'vote.exists': 'Vote exists!',
-    'assembly.start.time.must.be.future': 'Assembly start time must be in the future!',
-    'assembly.time.period.unavailable': 'Assembly time period unavailable!',
-    'assembly.archived': 'Assembly is archived!',
-    'assembly.already.archived': 'Assembly is already archived!',
-    'assembly.has.started': 'Assembly has started!',
-    'assembly.archiving.not.allowed': 'Assembly archiving is not allowed!',
+    'random.example.message': 'Sometimes things dont go well, try again.',
 }
 
 export const en: Localization = {

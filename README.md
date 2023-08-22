@@ -9,7 +9,7 @@
 2. Create a .env file based on .env.example.
 3. Setup DB.
 4. Execute the following SQL code on the database:
-- `./server/resources/db-schema.sql`
+- `npm run migrate:run` from the `/server` folder.
 5. Start the app in development mode. `npm run dev` or start the app for production `npm start`.
 
 
@@ -23,10 +23,12 @@
       - [`npm run test`](#npm-run-test)
       - [`npm run lint`](#npm-run-lint)
       - [`npm run lint-fix`](#npm-run-lint-fix)
+      - [`npm run migration:run`](#npm-run-migrationrun) (server only)
+      - [`npm run migration:revert`](#npm-run-migrationrevert) (server only)
+      - [`npm run migration:create --name=my_migration_name`](#npm-run-migrationcreate-namemymigrationname) (server only)
       - [`npm run translate`](#npm-run-translate)
       - [`npm run find-unused-translations`](#npm-run-find-unused-translations)
       - [`npm run storybook`](#npm-run-storybook)
-      - [`npm run create-usecase [DIR_NAME] [FILENAME]`](#npm-run-create-usecase-dirname-filename)
     - [Translations](#translations)
     - [Design system](#design-system)
     - [TailwindCSS](#tailwindcss)
@@ -92,6 +94,18 @@ Lint files.
 #### `npm run lint-fix`
 
 Fix all auto-fixable ESLint problems.
+
+#### `npm run migration:run`
+
+Will run all pending migrations.
+
+#### `npm run migration:revert`
+
+Will revert the last applied migration.
+
+#### `npm run migration:create --name=my_migration_name`
+
+Will create a new migration file in the migrations folder.
 
 #### `npm run translate`
 
