@@ -13,14 +13,14 @@ export const getTest = createUseCase({
     execute: async (ctx, t) => {
         const { id } = ctx.input
 
-        const testEntity = await t.findOneByOrFail(Test, { id })
+        const testEntity = await t.findOneBy(Test, { id })
 
         if (Math.random() > 0.5) {
             throw new ApiError('random.example.message')
         }
 
         return {
-            id: testEntity.id,
+            id: testEntity?.id || Math.random().toString(),
         }
     },
 })

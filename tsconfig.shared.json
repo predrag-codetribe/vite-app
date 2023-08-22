@@ -15,8 +15,6 @@
         "alwaysStrict": true,
         "exactOptionalPropertyTypes": false,
         "strictPropertyInitialization": false,
-        "noUnusedLocals": true,
-        "noUnusedParameters": true,
         "noPropertyAccessFromIndexSignature": true,
     }
 }

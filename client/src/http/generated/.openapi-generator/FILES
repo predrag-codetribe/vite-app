@@ -1,0 +1,7 @@
+.openapi-generator-ignore
+apis/PublicRouterApi.ts
+apis/index.ts
+index.ts
+models/GetTestIdResponse.ts
+models/index.ts
+runtime.ts
