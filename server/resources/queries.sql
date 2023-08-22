@@ -1,1 +1,0 @@
--- useful queries for developers go here

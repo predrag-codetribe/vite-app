@@ -13,10 +13,3 @@ export const ENV_SCHEMA = z.object({
 
     JWT_PUBLIC_KEY: z.string()
 })
-
-// make the env variables available to TypeScript thorough process.env.
-declare global {
-    namespace NodeJS {
-        interface ProcessEnv extends z.infer<typeof ENV_SCHEMA> {}
-    }
-}

@@ -2,9 +2,8 @@ import { ForbiddenError } from '../security/ForbiddenError'
 import { UnauthorizedError } from '../security/UnauthorizedError'
 
 import { logOutput } from './LogOutput'
-import { ResLocals } from '../middleware/ResLocals'
 import { getTimeSpentMiliseconds } from '../utils/TimeUtils'
-import { getClientIp } from '../controller/ExpressUtils'
+import { getClientIp } from '../router/ExpressUtils'
 
 export class LoggingUtil {
 
@@ -112,7 +111,7 @@ export class LoggingUtil {
     }
 
     private static commonFields(req: ExpressRequest, res: ExpressResponse) {
-        const locals = res.locals as ResLocals
+        const locals = res.locals
         const timeSpent = locals.requestTime ? `${getTimeSpentMiliseconds(locals.requestTime)} ms` : null
         return {
             method: req.method,

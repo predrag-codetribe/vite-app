@@ -1,4 +1,4 @@
-import winston from 'winston'
+import * as winston from 'winston'
 import { Log } from './Log'
 import * as Sentry from '@sentry/node'
 

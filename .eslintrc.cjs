@@ -11,7 +11,7 @@ module.exports = {
     'tsconfigRootDir': __dirname,
     'project': ['./server/tsconfig.json', './client/tsconfig.json']
   },
-  'ignorePatterns': ['.dev/**', '*.cjs', 'vite.config.ts', 'env.validate.ts', 'dist*'],
+  'ignorePatterns': ['.dev/**', '*.cjs', 'vite.config.ts', 'env.validate.ts', 'dist*', 'migrations*'],
   'extends': ['eslint:recommended', 'plugin:@typescript-eslint/recommended', 'plugin:react/recommended', 'plugin:react/jsx-runtime', 'plugin:react-hooks/recommended', 'plugin:@typescript-eslint/recommended-requiring-type-checking', 'plugin:storybook/recommended'],
   'overrides': [
     {

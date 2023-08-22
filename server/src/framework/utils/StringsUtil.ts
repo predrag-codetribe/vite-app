@@ -77,3 +77,9 @@ export const splitStringInTwo = (str: string, char: string): [string, string] =>
  * Splits a string to an array of string by a given value separator
  */
 export const listToArray = (str: string, separator = ','): string[] => str.trim().replace(' ', '').split(separator)
+/**
+ * Capitalize string
+ */
+export function capitalize(input: string): string {
+    return input.charAt(0).toUpperCase() + input.slice(1)
+}
