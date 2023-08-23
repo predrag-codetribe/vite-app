@@ -8,6 +8,7 @@
         "noEmit": false,
         "noFallthroughCasesInSwitch": true,
         "noImplicitReturns": true,
+        "resolveJsonModule": true,
         /**
          * Language and Environment
          * Since decorators do not exist in JavaScript (stage 3 proposal, https://github.com/tc39/proposal-decorators)

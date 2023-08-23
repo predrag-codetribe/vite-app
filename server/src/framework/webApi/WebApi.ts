@@ -18,6 +18,7 @@ import { webApiToOpenApi } from '../openapi/WebApiOpenApi'
 import { getRuntimeEnvironment } from '../runtime/runtimeUtils'
 
 import swaggerUi from 'swagger-ui-express'
+import swaggerDocument from '../../../openapi.json'
 
 const PORT = process.env.PORT
 /**
@@ -25,7 +26,7 @@ const PORT = process.env.PORT
  * ATM client app is referenced from the server app, not sure if this is the best solution.
  * Possibly it's better to copy /client/dist into /server/dist and creating a prod bundle that way
  */
-const CLIENT_APP_PATH = path.join(__dirname, '../../../../client/dist')
+const CLIENT_APP_PATH = path.join(__dirname, '../../../../../client/dist')
 
 const CACHE_CONTROL_MAX_AGE_SECONDS = 60
 
@@ -59,8 +60,6 @@ export const webApi = (spec: WebApiSpecification) => {
         app.use(corsMw)
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-var-requires
-    const swaggerDocument = require('../../../openapi.json')
     app
         // Endpoint for checking server health, returns 200
         .use('/ping', (_req, res) => res.status(200).send())
