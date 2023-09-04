@@ -62,6 +62,9 @@ export const webApiToOpenApi = (spec: WebApiSpecification) => {
                     // @ts-expect-error TS7053: Element implicitly has an 'any' type because expression of type 'string' can't be used to index type '{}'.
                     if (!container[route]) container[route] = {}
 
+                    // @ts-expect-error properties does not exist
+                    const hasRequestBody = Object.keys(inputJsonSchema.properties).length
+
                     // @ts-expect-error type checking will be an additional feature here
                     container[route][method] = {
                         operationId: apiName,
@@ -104,7 +107,7 @@ export const webApiToOpenApi = (spec: WebApiSpecification) => {
                                     }))
                                 : []),
                         ],
-                        requestBody: method !== 'get' ? {
+                        requestBody: method !== 'get' && hasRequestBody ? {
                             required: true,
                             content: {
                                 'application/json': {
